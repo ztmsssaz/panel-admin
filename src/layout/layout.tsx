@@ -8,10 +8,10 @@ function Layout({children}: {children: ReactNode}) {
     <Container fluid='xxl' className='bg-secondary-100 vw-100 mx-auto p-0'>
       <GlobalStyle />
       <Row>
-        <Col xs={2} className='vh-100'>
+        <Col xs={2} className='min-vh-100'>
           <Sidebar />
         </Col>
-        <Col xs={10} className='vh-100'>
+        <Col xs={10} className='min-vh-100 px-3'>
           <div>{children}</div>
         </Col>
       </Row>

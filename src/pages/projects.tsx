@@ -1,16 +1,36 @@
-import {Col, Container, ProgressBar, Row} from 'react-bootstrap'
+import {Col, Container, Row, Tab, Tabs} from 'react-bootstrap'
 import TopNavbar from '../components/ui/navbar'
 import Logo from '../components/ui/logo/logo'
 import MemberName from '../components/ui/memberName'
+import InviteMember from '../components/inviteMember'
+import styled from 'styled-components'
+import {colors} from '../layout/theme/colors'
+import Kanban from '../components/kanban/kanban'
+const Style = styled.div`
+  .nav-tabs .nav-item .nav-link {
+    color: ${colors.light_400};
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .nav-tabs .nav-item .nav-link:hover {
+    border: solid 1px #fff;
+  }
 
+  .nav-tabs .nav-item .nav-link.active {
+    background-color: #fff;
+    border-color: ${colors.light_200} !important;
+    box-shadow: 0px 1px 2px 0px rgba(82, 88, 102, 0.06);
+  }
+`
 function Projects() {
   return (
     <Container fluid className='mt-3'>
       <Row>
-        <Col xs={12} className='bg-light rounded-top-3 px-0'>
+        <Col xs={12} className='bg-white rounded-top-3 px-0'>
           <TopNavbar />
-          <div className='border-bottom border-secondary-100'></div>
-          <Container className='py-4'>
+          <div className='border-bottom border-secondary-200'></div>
+          <Container fluid className='py-4'>
             <Row>
               <Col xs={12} className='d-flex align-items-center'>
                 <Logo size={32} />
@@ -22,7 +42,7 @@ function Projects() {
                 <Row className='text-secondary-400 fs-16 my-3'>
                   <Col xs={2}>Project Status:</Col>
                   <Col xs={10}>
-                    <span className='tetx-start rounded-4 py-1 px-2 bg-success fs-12 text-light'>
+                    <span className='text-center fw-semibold text-primary-600 rounded-4 py-1 px-2 bg-primary-50 fs-12 text-light'>
                       Completed
                     </span>
                   </Col>
@@ -58,9 +78,31 @@ function Projects() {
                     <MemberName name='Alex Johnson' image='../assets/images/jack.png' />
                     <MemberName name='Maria Lopez' image='../assets/images/jack.png' />
                     <MemberName name='James Lee' image='../assets/images/jack.png' />
-                    <div></div>
+                    <InviteMember />
                   </Col>
                 </Row>
+              </Col>
+            </Row>
+            <div className='border-bottom border-secondary-200'></div>
+            <Row>
+              <Col xs={12}>
+                <Style>
+                  <Tabs
+                    defaultActiveKey='Kanban'
+                    id='tab-1'
+                    className='bg-secondary-100 rounded-10 my-3 p-1'
+                  >
+                    <Tab eventKey='Kanban' title='Kanban'>
+                      <Kanban />
+                    </Tab>
+                    <Tab eventKey='Table' title='Table'>
+                      Tab content for table
+                    </Tab>
+                    <Tab eventKey='Calendar' title='Calendar'>
+                      Tab content for calendar
+                    </Tab>
+                  </Tabs>
+                </Style>
               </Col>
             </Row>
           </Container>

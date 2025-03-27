@@ -19,66 +19,16 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
   /* colors */
-  //bakgrounds
-  .bg{
-    &-secondary-900{
-      background-color:${colors.dark_900}
-    }
-    &-secondary-800{
-      background-color:${colors.dark_800}
-    }
-    &-secondary-700{
-      background-color:${colors.dark_700}
-    }
-    &-secondary-600{
-      background-color:${colors.dark_600}
-    }
-    &-secondary-500{
-      background-color:${colors.dark_500}
-    }
-    &-secondary-400{
-      background-color:${colors.light_400}
-    }
-    &-secondary-300{
-      background-color:${colors.light_300}
-    }
-    &-secondary-200{
-      background-color:${colors.light_200}
-    }
-    &-secondary-100{
-      background-color:${colors.light_100}
-    }
-  }
-  //text color
-  .text{
-    &-secondary-900{
-     color:${colors.dark_900}
-    }
-    &-secondary-800{
-     color:${colors.dark_800}
-    }
-    &-secondary-700{
-     color:${colors.dark_700}
-    }
-    &-secondary-600{
-     color:${colors.dark_600}
-    }
-    &-secondary-500{
-     color:${colors.dark_500}
-    }
-    &-secondary-400{
-     color:${colors.light_400}
-    }
-    &-secondary-300{
-     color:${colors.light_300}
-    }
-    &-secondary-200{
-     color:${colors.light_200}
-    }
-    &-secondary-100{
-     color:${colors.light_100}
-    }
-  }
+  ${Object.entries(colors)
+    .map(
+      ([key, value]) => `
+    .text-${key.replace(/_/g, '-')} { color: ${value} !important; }
+    .bg-${key.replace(/_/g, '-')} { background-color: ${value} !important; }
+    .border-${key.replace(/_/g, '-')} { border-color: ${value} !important; }
+  `
+    )
+    .join('')}
+  
   /* font-size */
   .fs{
     &-10{
@@ -130,12 +80,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
 /* border */
-  .border{
-    &-secondary-200{
-      border-color:${colors.light_200}
-      }
-  }
+  
 .rounded{ 
+  &-6{
+    border-radius:6px;
+  }
+  &-7{
+    border-radius:7px;
+  }
   &-10{
     border-radius: 10px;
   }

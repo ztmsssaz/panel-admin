@@ -1,6 +1,6 @@
 import {styled} from 'styled-components'
 
-const Style = styled.span`
+const Style = styled.div`
   .height-34 {
     height: 34px;
   }
