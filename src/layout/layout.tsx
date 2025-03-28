@@ -11,8 +11,8 @@ function Layout({children}: {children: ReactNode}) {
         <Col xs={2} className='min-vh-100'>
           <Sidebar />
         </Col>
-        <Col xs={10} className='min-vh-100 px-3'>
-          <div>{children}</div>
+        <Col xs={10} className='min-vh-100 '>
+          <div className='me-md-4'>{children}</div>
         </Col>
       </Row>
     </Container>

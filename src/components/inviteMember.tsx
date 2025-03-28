@@ -11,16 +11,16 @@ function InviteMember() {
         <path
           d='M4.5 9H13.5'
           stroke='#161618'
-          stroke-width='1.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'
+          strokeWidth='1.5'
+          strokeLinecap='round'
+          strokeLinejoin='round'
         />
         <path
           d='M9 13.5V4.5'
           stroke='#161618'
-          stroke-width='1.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'
+          strokeWidth='1.5'
+          strokeLinecap='round'
+          strokeLinejoin='round'
         />
       </svg>
       <span className='mx-2'>Invite</span>

@@ -1,16 +1,16 @@
 export const colors = {
   // secondary
-  secondary_900: '#04070e',
+  secondary_900: '#020408',
   secondary_800: '#080B11',
   secondary_700: '#0D1015',
   secondary_600: '#131619',
-  secondary_500: '#1A1C1E',
+  secondary_500: '#44444A',
   secondary_400: '#6c7278',
   secondary_300: '#ACB5BB',
   secondary_200: '#E5E5EC',
   secondary_100: '#F1F1F5',
   secondary_50: '#F9F9FB',
-  wihte: '#fff',
+  white: '#fff',
   // error
   error_900: '#5F103B',
   error_800: '#721A43',

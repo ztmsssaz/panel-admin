@@ -28,7 +28,7 @@ function Projects() {
     <Container fluid className='mt-3'>
       <Row>
         <Col xs={12} className='bg-white rounded-top-3 px-0'>
-          <TopNavbar />
+          <TopNavbar road={'Projects'} />
           <div className='border-bottom border-secondary-200'></div>
           <Container fluid className='py-4'>
             <Row>

@@ -7,6 +7,7 @@ import FallbackLoading from '../components/ui/fallbackLoading'
 
 const Dashboard = lazy(() => import('../pages/dashboard'))
 const Projects = lazy(() => import('../pages/projects'))
+const Messages = lazy(() => import('../pages/messages'))
 
 const MainRouter = () => {
   // #ignore eslint
@@ -17,6 +18,7 @@ const MainRouter = () => {
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/projects' element={<Projects />} />
+            <Route path='/messages' element={<Messages />} />
           </Routes>
         </Layout>
       </Suspense>

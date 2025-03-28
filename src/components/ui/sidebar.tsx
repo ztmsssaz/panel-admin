@@ -1,8 +1,27 @@
 import {Col, Container, Dropdown, Row} from 'react-bootstrap'
-import {Link} from 'react-router'
+import {NavLink} from 'react-router'
 import Logo from './logo/logo'
-
+import styled from 'styled-components'
+import {colors} from '../../layout/theme/colors'
+const Style = styled.div`
+  a {
+    svg path {
+      stroke: ${colors.secondary_500};
+    }
+    &.activeLink {
+      background-color: ${colors.secondary_200};
+      font-weight: 600 !important;
+      color: ${colors.secondary_700} !important;
+      svg path {
+        stroke: ${colors.info_600};
+      }
+    }
+  }
+`
 function Sidebar() {
+  const navlinkClasses: string =
+    'd-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2'
+
   return (
     <Container fluid className=''>
       <Row>
@@ -53,11 +72,12 @@ function Sidebar() {
       <Row className='mt-4'>
         <span className='text-secondary fs-12'>Main Menu</span>
       </Row>
+      {/* links */}
       <Row className='fs-14'>
-        <div>
-          <Link
+        <Style>
+          <NavLink
             to={'/dashboard'}
-            className='d-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2'
+            className={({isActive}) => (isActive ? navlinkClasses + ` activeLink` : navlinkClasses)}
           >
             <svg
               width='18'
@@ -101,10 +121,10 @@ function Sidebar() {
               />
             </svg>
             <span>Dashboard</span>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={'/Projects'}
-            className='d-flex align-items-center text-secondary-500 fw-semibold py-1 rounded-2 bg-secondary-200'
+            className={({isActive}) => (isActive ? navlinkClasses + ` activeLink` : navlinkClasses)}
           >
             <svg
               width='18'
@@ -157,10 +177,10 @@ function Sidebar() {
             </svg>
 
             <span>Projects</span>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={'/Messages'}
-            className='d-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2'
+            className={({isActive}) => (isActive ? navlinkClasses + ` activeLink` : navlinkClasses)}
           >
             <svg
               width='18'
@@ -194,10 +214,10 @@ function Sidebar() {
               />
             </svg>
             <span>Messages</span>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={'/Calendar'}
-            className='d-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2'
+            className={({isActive}) => (isActive ? navlinkClasses + ` activeLink` : navlinkClasses)}
           >
             <svg
               width='18'
@@ -284,10 +304,10 @@ function Sidebar() {
             </svg>
 
             <span>Calendar</span>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={'/Analytics'}
-            className='d-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2'
+            className={({isActive}) => (isActive ? navlinkClasses + ` activeLink` : navlinkClasses)}
           >
             <svg
               width='18'
@@ -338,8 +358,8 @@ function Sidebar() {
             </svg>
 
             <span>Analytics</span>
-          </Link>
-        </div>
+          </NavLink>
+        </Style>
       </Row>
     </Container>
   )
