@@ -13,3 +13,6 @@ body {
 p {
   white-space: wrap;
 }
+.w-fit {
+  width: fit-content;
+}

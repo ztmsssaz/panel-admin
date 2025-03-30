@@ -25,7 +25,7 @@ const Style = styled.div`
 `;
 function Projects() {
   return (
-    <Container fluid className="vh-100 overflow-y-scroll hideScroll px-3">
+    <Container fluid className="overflow-y-scroll hideScroll px-3">
       <Row className="h-inherit">
         <Col xs={12} className="inherit px-0">
           <TopNavbar road={'Projects'} />

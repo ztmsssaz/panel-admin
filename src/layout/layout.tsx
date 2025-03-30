@@ -1,9 +1,15 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import Sidebar from '../components/ui/sidebar';
 import { Container } from 'react-bootstrap';
 import GlobalStyle from './theme/globalStyle';
 
-function Layout({ children }: { children: ReactNode }) {
+const Layout = ({ children }: { children: ReactNode }) => {
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  function handleSidebar() {
+    setToggle(!toggle);
+  }
+
   return (
     <Container
       fluid
@@ -12,20 +18,22 @@ function Layout({ children }: { children: ReactNode }) {
       <GlobalStyle />
       <div className="d-flex">
         <div
-          className="vh-75 my-3 d-none d-md-block"
-          style={{ minWidth: '220px' }}
+          className="my-3 d-none d-md-block"
+          style={{ transition: '0.3s', width: toggle ? '220px' : '50px' }}
         >
-          <Sidebar />
+          <Sidebar open={toggle} onClick={handleSidebar} />
         </div>
-        <div
-          className="bg-white w-100 rounded-3 my-3 mx-auto overflow-y-scroll hideScroll mx-0"
-          style={{ boxShadow: '0px 1px 2px 0px rgba(82, 88, 102, 0.06)' }}
-        >
-          {children}
+        <div className="vh-100 w-100 overflow-y-scroll hideScroll">
+          <div
+            className="bg-white rounded-3 my-3"
+            style={{ boxShadow: '0px 1px 2px 0px rgba(82, 88, 102, 0.06)' }}
+          >
+            {children}
+          </div>
         </div>
       </div>
     </Container>
   );
-}
+};
 
 export default Layout;

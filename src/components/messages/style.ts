@@ -48,7 +48,7 @@ const Style = styled.div`
         outline: none;
         border: none;
         border-top: solid 1px ${colors.secondary_200};
-        max-width: 77%;
+        padding-right: 170px !important;
         &::placeholder {
           font-size: 14px;
           color: ${colors.secondary_400};
