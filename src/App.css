@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box;
 }
+html,
+body {
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 p {
   white-space: wrap;
 }

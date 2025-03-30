@@ -1,22 +1,31 @@
-import {ReactNode} from 'react'
-import Sidebar from '../components/ui/sidebar'
-import {Col, Container, Row} from 'react-bootstrap'
-import GlobalStyle from './theme/globalStyle'
+import { ReactNode } from 'react';
+import Sidebar from '../components/ui/sidebar';
+import { Container } from 'react-bootstrap';
+import GlobalStyle from './theme/globalStyle';
 
-function Layout({children}: {children: ReactNode}) {
+function Layout({ children }: { children: ReactNode }) {
   return (
-    <Container fluid='xxl' className='bg-secondary-100 vw-100 mx-auto p-0'>
+    <Container
+      fluid
+      className="mx-auto overflow-y-scroll hideScroll h-100 mx-3"
+    >
       <GlobalStyle />
-      <Row>
-        <Col xs={2} className='min-vh-100'>
+      <div className="d-flex">
+        <div
+          className="vh-75 my-3 d-none d-md-block"
+          style={{ minWidth: '220px' }}
+        >
           <Sidebar />
-        </Col>
-        <Col xs={10} className='min-vh-100 '>
-          <div className='me-md-4'>{children}</div>
-        </Col>
-      </Row>
+        </div>
+        <div
+          className="bg-white w-100 rounded-3 my-3 mx-auto overflow-y-scroll hideScroll mx-0"
+          style={{ boxShadow: '0px 1px 2px 0px rgba(82, 88, 102, 0.06)' }}
+        >
+          {children}
+        </div>
+      </div>
     </Container>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

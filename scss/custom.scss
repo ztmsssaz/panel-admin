@@ -1,0 +1,85 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import '../node_modules/bootstrap/scss/functions';
+
+// 2. Include any default variable overrides here
+// 3. Include remainder of required Bootstrap stylesheets
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
+// 4. Include any optional Bootstrap components as you like
+
+// 5. Add additional custom code here
+// custom.scss
+
+// رنگ‌های سفارشی
+$secondary-900: #020408;
+$secondary-800: #080b11;
+$secondary-700: #0d1015;
+$secondary-600: #131619;
+$secondary-500: #44444a;
+$secondary-400: #6c7278;
+$secondary-300: #acb5bb;
+$secondary-200: #e5e5ec;
+$secondary-100: #f1f1f5;
+$secondary-50: #f9f9fb;
+
+$error-900: #5f103b;
+$error-800: #721a43;
+$error-700: #8e2a4e;
+$error-600: #aa3d5a;
+$error-500: #c65468;
+$error-400: #dc7d85;
+$error-300: #ed9c9b;
+$error-200: #f9c6bf;
+$error-100: #fce4df;
+$error-50: #fef6f5;
+
+$success-900: #345302;
+$success-800: #426403;
+$success-700: #567c06;
+$success-600: #6b9408;
+$success-500: #82ad0c;
+$success-400: #abcd3e;
+$success-300: #cbe665;
+$success-200: #e5f69a;
+$success-100: #f3facc;
+
+$primary-900: #094554;
+$primary-800: #2d1d92;
+$primary-700: #187d7e;
+$primary-600: #23978d;
+$primary-500: red;
+$primary-400: #5fcfb0;
+$primary-300: #83e7c2;
+$primary-200: #aff7d5;
+$primary-100: #d6fbe6;
+$primary-50: #e0f7ec;
+
+$warning-900: #6e190e;
+$warning-800: #852c18;
+$warning-700: #a64526;
+$warning-600: #c66338;
+$warning-500: #fc980c;
+$warning-400: #f0ab78;
+$warning-300: #f7c494;
+$warning-200: #fcdeb9;
+$warning-100: #fdf0db;
+$warning-50: #fefaf4;
+
+$info-900: #0e216e;
+$info-800: #183285;
+$info-700: #2a60b7;
+$info-600: #3863c6;
+$info-500: #4d81e7;
+$info-400: #78a5f0;
+$info-300: #94bdf7;
+$info-200: #b9d6fc;
+$info-100: #dbecfd;
+$info-50: #f4f9fe;
+
+// وارد کردن فایل‌های اصلی بوت استرپ برای استفاده از رنگ‌ها
+@import './overrides.scss';
+@import '../node_modules/bootstrap/scss/bootstrap';

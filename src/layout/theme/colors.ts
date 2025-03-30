@@ -65,4 +65,4 @@ export const colors = {
   info_200: '#B9D6FC',
   info_100: '#DBECFD',
   info_50: '#F4F9FE',
-}
+};
