@@ -9,7 +9,7 @@ function Kanban() {
   useEffect(() => {
     setTimeout(() => {
       setSleepTime(false);
-    }, 2000000);
+    }, 3000);
   }, []);
 
   const NumberBadge = (value: number) => {

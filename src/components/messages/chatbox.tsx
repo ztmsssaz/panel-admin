@@ -5,6 +5,8 @@ import { Container } from 'react-bootstrap';
 import { SendIcon } from '../ui/icons/svgs';
 import Skeleton from 'react-loading-skeleton';
 import { useSearchParams } from 'react-router';
+import { VideoCamera } from '../ui/icons';
+import CallAndOthers from './call&others';
 
 const Chat = ({}) => {
   const [searchParams] = useSearchParams();
@@ -104,22 +106,29 @@ const Chat = ({}) => {
 
   return (
     <Style className="h-100">
-      <header className="border-start border-secondary-200 cursor-pointer d-flex align-items-center border-bottom border-secondary-200 py-md-4 px-3">
-        <div>
-          {!loading ? (
-            <img width="32" src="../../assets/images/mina.png" alt="profile" />
-          ) : (
-            <Skeleton width={32} height={32} circle baseColor="#ccc" />
-          )}
+      <header className="d-flex align-items-center justify-content-between border-start border-secondary-200 border-bottom border-secondary-200 py-md-4 px-3">
+        <div className="d-flex align-items-center">
+          <div>
+            {!loading ? (
+              <img
+                width="32"
+                src="../../assets/images/mina.png"
+                alt="profile"
+              />
+            ) : (
+              <Skeleton width={32} height={32} circle baseColor="#ccc" />
+            )}
+          </div>
+          <div className="w-100 ps-3">
+            <h4 className="fw-semibold fs-14 mb-1">
+              {!loading ? 'Sophia Lee' : <Skeleton width={100} />}
+            </h4>
+            <p className="fw-bold fs-12 text-primary-600">
+              {!loading ? 'Active' : <Skeleton width={45} />}
+            </p>
+          </div>
         </div>
-        <div className="w-100 ps-3">
-          <h4 className="fw-semibold fs-14 mb-1">
-            {!loading ? 'Sophia Lee' : <Skeleton width={100} />}
-          </h4>
-          <p className="fw-bold fs-12 text-primary-600">
-            {!loading ? 'Active' : <Skeleton width={45} />}
-          </p>
-        </div>
+        <CallAndOthers />
       </header>
       <div className="border-start border-secondary-200 chat py-3">
         <div className="chat-body">

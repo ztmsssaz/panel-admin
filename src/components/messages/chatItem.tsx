@@ -61,7 +61,7 @@ function ChatItem({
               className="fs-12 fw-normal text-secondary-400"
               dateTime="09:00"
             >
-              {data ? ' 9.00' : <Skeleton width={35} />}
+              {data ? ' 12 Dec' : <Skeleton width={35} />}
             </time>
           </div>
           {data ? (

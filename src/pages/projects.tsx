@@ -1,5 +1,5 @@
 import { Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
-import TopNavbar from '../components/ui/navbar';
+import TopNavbar from '../components/ui/topNavBar/navbar';
 import { Doc } from '../components/ui/icons';
 import MemberName from '../components/ui/memberName';
 import InviteMember from '../components/inviteMember';
@@ -33,7 +33,7 @@ function Projects() {
   useEffect(() => {
     setTimeout(() => {
       setProgressValue(80);
-    }, 100000);
+    }, 3000);
   }, []);
 
   return (

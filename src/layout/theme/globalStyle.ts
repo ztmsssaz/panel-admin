@@ -150,9 +150,12 @@ const GlobalStyle = createGlobalStyle`
     transform: rotate(180deg);
   }
   /* links */
-    .transition-all{
+  .transition-all{
       transition:0.4s
-    }
+  }
+  .outline-3-white{
+    outline: solid 3px #fff;
+  }
 `;
 
 export default GlobalStyle;

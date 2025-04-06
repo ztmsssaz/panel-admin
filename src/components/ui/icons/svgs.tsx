@@ -18,7 +18,13 @@ export function ArrowDown({
     </svg>
   );
 }
-export function CommentIcon({ width = 16 }: { width?: number }) {
+export function CommentIcon({
+  width = 16,
+  color = '#5B5A64',
+}: {
+  width?: number;
+  color?: string;
+}) {
   return (
     <svg
       width={width}
@@ -29,7 +35,7 @@ export function CommentIcon({ width = 16 }: { width?: number }) {
     >
       <path
         d="M5.66634 12.6673H5.33301C2.66634 12.6673 1.33301 12.0007 1.33301 8.66732V5.33398C1.33301 2.66732 2.66634 1.33398 5.33301 1.33398H10.6663C13.333 1.33398 14.6663 2.66732 14.6663 5.33398V8.66732C14.6663 11.334 13.333 12.6673 10.6663 12.6673H10.333C10.1263 12.6673 9.92634 12.7673 9.79967 12.934L8.79967 14.2673C8.35967 14.854 7.63967 14.854 7.19967 14.2673L6.19967 12.934C6.09301 12.7873 5.84634 12.6673 5.66634 12.6673Z"
-        stroke="#5B5A64"
+        stroke={color}
         strokeWidth="1.3"
         strokeMiterlimit="10"
         strokeLinecap="round"
@@ -37,14 +43,14 @@ export function CommentIcon({ width = 16 }: { width?: number }) {
       />
       <path
         d="M4.66699 5.33398H11.3337"
-        stroke="#5B5A64"
+        stroke={color}
         strokeWidth="1.3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M4.66699 8.66602H8.66699"
-        stroke="#5B5A64"
+        stroke={color}
         strokeWidth="1.3"
         strokeLinecap="round"
         strokeLinejoin="round"

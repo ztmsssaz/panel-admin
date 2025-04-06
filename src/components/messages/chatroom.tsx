@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { colors } from '../../layout/theme/colors';
 import ChatItem from './chatItem';
@@ -26,9 +25,9 @@ const Style = styled.div`
 function Chatroom({ chatList }: { chatList: boolean }) {
   const [activeChat, setActiveChat] = useState<number>(0);
 
-  const activateChat = (id: number) => {
+  const activateChat = useCallback((id: number) => {
     setActiveChat(id);
-  };
+  }, []);
   return (
     <Style className="mt-2">
       <Search />

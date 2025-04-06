@@ -1,5 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap';
-import TopNavbar from '../components/ui/navbar';
+import TopNavbar from '../components/ui/topNavBar/navbar';
 import ChatBox from '../components/messages/chatbox';
 import Chatroom from '../components/messages/chatroom';
 import { useEffect, useState } from 'react';

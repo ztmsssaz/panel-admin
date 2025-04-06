@@ -1,5 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap';
-import TopNavbar from '../components/ui/navbar';
+import TopNavbar from '../components/ui/topNavBar/navbar';
 import ButtonSwitcher from '../components/ui/buttonsSwitcher';
 import DropdownMenu from '../components/ui/dropDown';
 
