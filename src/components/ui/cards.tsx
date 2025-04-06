@@ -32,7 +32,7 @@ function CardSection({ title }: { title: string }) {
             </svg>
           </div>
         </div>
-        <CardTitle className="text-secondary-700 fs-14 fw-semibold mt-2 mb-1">
+        <CardTitle className="text-secondary-700 fs-14 fw-semibold mt-3 mb-2">
           {title}
         </CardTitle>
         <div className="d-flex align-items-center">
@@ -160,7 +160,7 @@ function CardSection({ title }: { title: string }) {
             <span className="fs-12 fw-bold text-secondary-400 ms-1">{12}</span>
           </div>
         </div>
-        <div className="border-bottom border-secondary-200 my-2"></div>
+        <div className="border-bottom border-secondary-200 my-3"></div>
         <div className="d-flex align-items-center justify-content-between">
           <div className="d-flex align-items-center">
             <div className="rounded-circle border border-3 border-white z-3">

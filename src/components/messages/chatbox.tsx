@@ -103,7 +103,7 @@ const Chat = ({}) => {
       <div className="border-start border-secondary-200 chat py-3">
         <div className="chat-body">
           <Container fluid="lg">
-            <div className="message-container px-3 w-100 hideScroll">
+            <div className="message-container w-100 hideScroll">
               {messages.map((messageContent, index) => {
                 return (
                   <div
@@ -156,10 +156,10 @@ const Chat = ({}) => {
             </div>
           </Container>
         </div>
-        <div className="chat-footer border-start border-secondary-200 bg-white">
+        <div className="chat-footer rounded-bottom-10 border-start border-secondary-200 bg-white">
           <div className="position-relative d-flex">
             <input
-              className="w-100 bg-white py-3 px-3"
+              className="w-100 bg-white rounded-bottom-10 py-3 px-3"
               value={currentMessage}
               type="text"
               placeholder="Type your messages here"

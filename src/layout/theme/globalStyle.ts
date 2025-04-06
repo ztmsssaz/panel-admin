@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from './colors';
 
+const sizes = [
+  6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 24, 26,
+];
+const directions = ['', 'top', 'right', 'bottom', 'left'];
+
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Giest';
@@ -28,11 +33,11 @@ const GlobalStyle = createGlobalStyle`
       `,
     )
     .join('')}
-
+.transparent-light-gray-border {
+  border: 2px solid rgba(255, 255, 255, 0.2); 
+}
   /* Font Sizes */
-  ${[10, 11, 12, 13, 14, 15, 16, 17, 18, 24]
-    .map((size) => `.fs-${size} { font-size: ${size}px; }`)
-    .join('\n')}
+  ${sizes.map((size) => `.fs-${size} { font-size: ${size}px; }`).join('\n')}
 
   /* Default Styles */
   * {
@@ -49,12 +54,33 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* Border Radius */
-  ${[6, 7, 10]
-    .map((size) => `.rounded-${size} { border-radius: ${size}px; }`)
+  ${sizes
+    .map((size) =>
+      directions
+        .map((dir) => {
+          const className = dir
+            ? `.rounded-${dir}-${size}`
+            : `.rounded-${size}`;
+          const radius =
+            dir === 'top'
+              ? `border-top-left-radius: ${size}px; border-top-right-radius: ${size}px;`
+              : dir === 'right'
+                ? `border-top-right-radius: ${size}px; border-bottom-right-radius: ${size}px;`
+                : dir === 'bottom'
+                  ? `border-bottom-left-radius: ${size}px; border-bottom-right-radius: ${size}px;`
+                  : dir === 'left'
+                    ? `border-top-left-radius: ${size}px; border-bottom-left-radius: ${size}px;`
+                    : `border-radius: ${size}px;`;
+
+          return `${className} { ${radius} }`;
+        })
+        .join('\n'),
+    )
     .join('\n')}
 
+
   /* Margin & Padding */
-  ${[6, 7, 8, 9, 10, 15, 16]
+  ${sizes
     .map(
       (size) => `
       .m-${size} { margin: ${size}px; }
@@ -96,6 +122,32 @@ const GlobalStyle = createGlobalStyle`
     top:50%;
     left:50%;
     transform:translate(-50%,-50%)
+  }
+  /* smooth buttons */
+  .btn-group-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0d6efd;
+  border-radius: 50px;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-group .btn {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: transparent;
+}
+/* ---- end buttons smooth */
+.rotate-180 {
+    transform: rotate(180deg);
   }
 `;
 

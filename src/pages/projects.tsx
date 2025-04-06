@@ -6,6 +6,7 @@ import InviteMember from '../components/inviteMember';
 import styled from 'styled-components';
 import { colors } from '../layout/theme/colors';
 import Kanban from '../components/kanban/kanban';
+import { useEffect, useState } from 'react';
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
     color: ${colors.secondary_400};
@@ -24,6 +25,14 @@ const Style = styled.div`
   }
 `;
 function Projects() {
+  const [progressValue, setProgressValue] = useState<number>(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setProgressValue(80);
+    }, 450);
+  }, []);
+
   return (
     <Container fluid className="overflow-y-scroll hideScroll px-3">
       <Row className="h-inherit">
@@ -33,13 +42,18 @@ function Projects() {
           <Container fluid className="py-4">
             <Row>
               <Col xs={12} className="d-flex align-items-center">
-                <Doc size={32} />
+                <Doc
+                  size={32}
+                  iconSize={20}
+                  classes="rounded-10"
+                  bacColor={colors.info_600}
+                />
                 <h2 className="fs-24 fw-semibold ms-3">Marketing Campaign</h2>
               </Col>
             </Row>
-            <Row className="my-4">
+            <Row className="mt-4">
               <Col xs={12}>
-                <Row className="text-secondary-400 fs-16 my-3">
+                <Row className="text-secondary-400 fs-16 mb-3">
                   <Col xs={2}>Project Status:</Col>
                   <Col xs={10}>
                     <span className="text-center fw-semibold text-primary-600 rounded-4 py-1 px-2 bg-primary-50 fs-12 text-light">
@@ -58,18 +72,18 @@ function Projects() {
                       <div
                         className="progress-bar bg-primary-500"
                         role="progressbar"
-                        style={{ width: '80%' }}
+                        style={{ width: `${progressValue}%` }}
                       ></div>
                     </div>
                   </Col>
                 </Row>
-                <Row className="d-flex justify-content-start text-secondary-400 fs-16 my-3">
+                <Row className="d-flex justify-content-start align-items-center text-secondary-400 fs-16 my-3">
                   <Col xs={2}>Dates:</Col>
                   <Col xs={10} className="text-secondary-500  fw-bold pe-4">
                     October 15, 2024 {`->`} December 20, 2024
                   </Col>
                 </Row>
-                <Row className="d-flex justify-content-start text-secondary-400 fs-16 my-3">
+                <Row className="d-flex justify-content-start align-items-center text-secondary-400 fs-16 my-3">
                   <Col xs={2}>Projetct Manager:</Col>
                   <Col xs={10} className="text-secondary-500 fw-bold pe-4">
                     <MemberName
@@ -78,11 +92,11 @@ function Projects() {
                     />
                   </Col>
                 </Row>
-                <Row className="d-flex justify-content-start text-secondary-400 fs-16 my-3">
+                <Row className="d-flex justify-content-start align-items-center text-secondary-400 fs-16 mt-3 my-1">
                   <Col xs={2}>Projetct Team:</Col>
                   <Col
                     xs={10}
-                    className="text-secondary-500 d-flex fw-bold pe-4"
+                    className="text-secondary-500 d-flex align-items-center fw-bold pe-4"
                   >
                     <MemberName
                       name="Alex Johnson"
@@ -101,14 +115,14 @@ function Projects() {
                 </Row>
               </Col>
             </Row>
-            <div className="border-bottom border-secondary-200"></div>
+            <div className="border-bottom border-secondary-200 my-4"></div>
             <Row>
               <Col xs={12}>
                 <Style>
                   <Tabs
                     defaultActiveKey="Kanban"
                     id="tab-1"
-                    className="bg-secondary-100 rounded-10 my-3 p-1"
+                    className="bg-secondary-100 rounded-10 mb-4 p-1"
                   >
                     <Tab eventKey="Kanban" title="Kanban">
                       <Kanban />

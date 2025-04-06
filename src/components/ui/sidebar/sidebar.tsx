@@ -1,9 +1,11 @@
 import { Col, Container, Dropdown, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router';
-import { Check, Logo } from './icons';
+import { Check, Logo } from '../icons';
 import styled from 'styled-components';
-import { colors } from '../../layout/theme/colors';
+import { colors } from '../../../layout/theme/colors';
 import { memo } from 'react';
+import FavoritesButtons from './favorites';
+import Others from './others';
 const Style = styled.div`
   * {
     transition: all 0.4s;
@@ -30,9 +32,6 @@ const Style = styled.div`
   .sidebar {
     transition: all 0.3s;
     width: 50px;
-  }
-  .rotate-180 {
-    transform: rotate(180deg);
   }
 `;
 const Sidebar = memo(
@@ -441,6 +440,13 @@ const Sidebar = memo(
                   </span>
                 </div>
               </NavLink>
+            </Col>
+
+            <Col xs={12}>
+              <FavoritesButtons />
+            </Col>
+            <Col xs={12} className="position-absolute bottom-0 start-0 ps-0">
+              <Others />
             </Col>
           </Row>
         </Style>

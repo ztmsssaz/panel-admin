@@ -58,7 +58,7 @@ export const colors = {
   info_900: '#0E216E',
   info_800: '#183285',
   info_700: '#2A60B7',
-  info_600: '#3863C6',
+  info_600: '#346EF3',
   info_500: '#4D81E7',
   info_400: '#78A5F0',
   info_300: '#94BDF7',

@@ -1,10 +1,10 @@
 import { ReactNode, useState } from 'react';
-import Sidebar from '../components/ui/sidebar';
+import Sidebar from '../components/ui/sidebar/sidebar';
 import { Container } from 'react-bootstrap';
 import GlobalStyle from './theme/globalStyle';
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(true);
 
   function handleSidebar() {
     setToggle(!toggle);
@@ -18,8 +18,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <GlobalStyle />
       <div className="d-flex">
         <div
-          className="my-3 d-none d-md-block"
-          style={{ transition: '0.3s', width: toggle ? '220px' : '50px' }}
+          className="my-3 d-none d-md-block position-relative w-25"
+          style={{ transition: '0.3s', width: toggle ? '235px' : '50px' }}
         >
           <Sidebar open={toggle} onClick={handleSidebar} />
         </div>

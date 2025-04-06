@@ -33,30 +33,30 @@ export function Check({ size = 28 }: { size: number }) {
           <path
             d="M12.3701 8.88H17.6201"
             stroke="#2362f5"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M6.37988 8.88L7.12988 9.63L9.37988 7.38"
             stroke="#2362f5"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M12.3701 15.88H17.6201"
             stroke="#2362f5"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M6.37988 15.88L7.12988 16.63L9.37988 14.38"
             stroke="#2362f5"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
@@ -65,27 +65,31 @@ export function Check({ size = 28 }: { size: number }) {
 }
 export function Doc({
   size = 28,
+  iconSize = 12,
+  bacColor = '#346EF3',
   classes,
 }: {
   size?: number;
+  iconSize?: number;
   classes?: string;
+  bacColor?: string;
 }) {
   return (
     <div
-      className={`rounded-10 ${classes} `}
+      className={`${classes} transparent-light-gray-border`}
       style={{
         width: size + 'px',
         height: size + 'px',
         backgroundImage: `url('../../../assets/images/bgb.png')`,
-        backgroundColor: '#346EF3',
+        backgroundColor: `${bacColor}`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         position: 'relative',
       }}
     >
       <svg
-        width={size - 10}
-        height={size - 10}
+        width={iconSize}
+        height={iconSize}
         className="centered"
         viewBox="0 0 25 25"
         fill="none"
