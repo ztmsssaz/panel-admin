@@ -1,8 +1,11 @@
-import styled from 'styled-components';
-import ChatItem from './chatItem';
+import { useCallback, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router';
+import styled from 'styled-components';
 import { colors } from '../../layout/theme/colors';
+import ChatItem from './chatItem';
 import Search from './search';
+
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
     color: ${colors.secondary_400};
@@ -19,15 +22,36 @@ const Style = styled.div`
     border-bottom: solid 2px ${colors.info_600} !important;
   }
 `;
+
 function Chatroom({ chatList }: { chatList: boolean }) {
+  const [activeChat, setActiveChat] = useState<number>(0);
+
+  const activateChat = (id: number) => {
+    setActiveChat(id);
+  };
   return (
     <Style className="mt-2">
       <Search />
       <Tabs defaultActiveKey="All" id="chatroom-tabs" className="mb-3">
         <Tab eventKey="All" title="All">
-          <ChatItem data={chatList} />
-          <ChatItem data={chatList} />
-          <ChatItem data={chatList} />
+          <ChatItem
+            data={chatList}
+            id={1}
+            active={activeChat}
+            onActive={activateChat}
+          />
+          <ChatItem
+            data={chatList}
+            id={2}
+            active={activeChat}
+            onActive={activateChat}
+          />
+          <ChatItem
+            data={chatList}
+            id={3}
+            active={activeChat}
+            onActive={activateChat}
+          />
         </Tab>
         <Tab eventKey="Unread" title="Unread">
           Tab content for Unread

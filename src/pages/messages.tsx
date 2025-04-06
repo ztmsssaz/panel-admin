@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 function Messages() {
   const [messages, setMessages] = useState<boolean>(false);
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,15 +25,17 @@ function Messages() {
               <Col xs={12} md={5} lg={4} xl={3}>
                 <Chatroom chatList={messages} />
               </Col>
-              <Col
-                xs={12}
-                md={7}
-                lg={8}
-                xl={9}
-                className="position-relative px-0"
-              >
-                <ChatBox />
-              </Col>
+              {!isMobile && (
+                <Col
+                  xs={12}
+                  md={7}
+                  lg={8}
+                  xl={9}
+                  className="position-relative px-0"
+                >
+                  <ChatBox />
+                </Col>
+              )}
             </Row>
           </Container>
         </Col>

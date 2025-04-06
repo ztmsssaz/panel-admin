@@ -1,9 +1,10 @@
 // @ts-nocheck
 
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Layout from '../layout/layout';
 import FallbackLoading from '../components/ui/fallbackLoading';
+import Chat from '../components/messages/chatbox';
 
 const Dashboard = lazy(() => import('../pages/dashboard'));
 const Projects = lazy(() => import('../pages/projects'));
@@ -20,6 +21,7 @@ const MainRouter = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/messages" element={<Messages />} />
+            <Route path="/messages/:chatId" element={<Chat />} />
           </Routes>
         </Layout>
       </Suspense>

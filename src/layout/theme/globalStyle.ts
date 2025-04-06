@@ -149,6 +149,10 @@ const GlobalStyle = createGlobalStyle`
 .rotate-180 {
     transform: rotate(180deg);
   }
+  /* links */
+    .transition-all{
+      transition:0.4s
+    }
 `;
 
 export default GlobalStyle;

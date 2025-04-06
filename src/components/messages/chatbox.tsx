@@ -4,8 +4,12 @@ import { InfoButton } from '../ui/buttons';
 import { Container } from 'react-bootstrap';
 import { SendIcon } from '../ui/icons/svgs';
 import Skeleton from 'react-loading-skeleton';
+import { useSearchParams } from 'react-router';
 
 const Chat = ({}) => {
+  const [searchParams] = useSearchParams();
+  const chatId = searchParams.get('chatId');
+  console.log(chatId);
   const [currentMessage, setCurrentMessage] = useState('');
   const [loading, setLoading] = useState<boolean>(true);
   const lastMessageRef = useRef<any>(null); // مرجع آخرین پیام
