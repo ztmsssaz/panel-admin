@@ -24,10 +24,10 @@ function FavoritesButtons() {
             <path
               d="M11.6199 5.9375L7.81655 9.74083C7.36738 10.19 6.63238 10.19 6.18322 9.74083L2.37988 5.9375"
               stroke="#5B5A64"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
           </svg>
           <span className="ps-2">Favorites</span>
@@ -43,14 +43,14 @@ function FavoritesButtons() {
             <path
               d="M3.5 7.21704H10.5"
               stroke="#5B5A64"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M7 10.717V3.71704"
               stroke="#5B5A64"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </span>

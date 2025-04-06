@@ -1,8 +1,16 @@
+import { useEffect, useState } from 'react';
 import CardSection from '../ui/cards';
 import { Row, Col, Button, Container } from 'react-bootstrap';
+import Skeleton from 'react-loading-skeleton';
 
 function Kanban() {
   const columns = ['To Do', 'In Progress', 'Review', 'Completed'];
+  const [sleepTime, setSleepTime] = useState<boolean>(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setSleepTime(false);
+    }, 2000000);
+  }, []);
 
   const NumberBadge = (value: number) => {
     return (
@@ -47,10 +55,21 @@ function Kanban() {
                   <h5 className="text-center fw-bold fs-16 py-3 px-2">
                     {title}
                   </h5>
-                  {NumberBadge(4)}
+                  {!sleepTime ? (
+                    NumberBadge(4)
+                  ) : (
+                    <Skeleton
+                      height={20}
+                      width={20}
+                      containerClassName="d-flex align-items-center"
+                    />
+                  )}
                 </div>
                 {[...Array(4)].map((_, index) => (
-                  <CardSection key={index} title="Card Action" />
+                  <CardSection
+                    key={index}
+                    title={!sleepTime ? 'Cart Title' : ''}
+                  />
                 ))}
                 <Button className="bg-transparent text-secondary-400 border-0 fs-14 fw-bold mt-2 d-flex align-items-center">
                   <svg

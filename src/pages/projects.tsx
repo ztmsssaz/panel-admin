@@ -7,15 +7,18 @@ import styled from 'styled-components';
 import { colors } from '../layout/theme/colors';
 import Kanban from '../components/kanban/kanban';
 import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
     color: ${colors.secondary_400};
     font-weight: 600;
     font-size: 14px;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-right: 1px;
   }
   .nav-tabs .nav-item .nav-link:hover {
-    border: solid 1px #fff;
+    border: solid 1px #77777786;
   }
 
   .nav-tabs .nav-item .nav-link.active {
@@ -30,7 +33,7 @@ function Projects() {
   useEffect(() => {
     setTimeout(() => {
       setProgressValue(80);
-    }, 450);
+    }, 100000);
   }, []);
 
   return (
@@ -48,6 +51,7 @@ function Projects() {
                   classes="rounded-10"
                   bacColor={colors.info_600}
                 />
+
                 <h2 className="fs-24 fw-semibold ms-3">Marketing Campaign</h2>
               </Col>
             </Row>
@@ -56,38 +60,54 @@ function Projects() {
                 <Row className="text-secondary-400 fs-16 mb-3">
                   <Col xs={2}>Project Status:</Col>
                   <Col xs={10}>
-                    <span className="text-center fw-semibold text-primary-600 rounded-4 py-1 px-2 bg-primary-50 fs-12 text-light">
-                      Completed
-                    </span>
+                    {progressValue ? (
+                      <span className="text-center fw-semibold text-primary-600 rounded-4 py-1 px-2 bg-primary-50 fs-12 text-light">
+                        Completed
+                      </span>
+                    ) : (
+                      <Skeleton width={80} height={20} borderRadius={10} />
+                    )}
                   </Col>
                 </Row>
                 <Row className="text-secondary-400 fs-16 my-3">
                   <Col xs={2}>Progress:</Col>
                   <Col xs={10} className="d-flex align-items-center">
-                    <span className="text-secondary-500 fw-bold pe-4">80%</span>
-                    <div
-                      className="progress bg-primary-50 w-25 max-w-50 rounded-3 h-2"
-                      style={{ height: '10px' }}
-                    >
+                    <h6 className="text-secondary-500 fs-16 fw-bold pe-4">
+                      {progressValue ? (
+                        progressValue + '%'
+                      ) : (
+                        <Skeleton width={23} height={19} className="pe-4" />
+                      )}
+                    </h6>
+                    {
                       <div
-                        className="progress-bar bg-primary-500"
-                        role="progressbar"
-                        style={{ width: `${progressValue}%` }}
-                      ></div>
-                    </div>
+                        className="progress bg-primary-50 w-25 max-w-50 rounded-3 h-2"
+                        style={{ height: '10px' }}
+                      >
+                        <div
+                          className="progress-bar bg-primary-500"
+                          role="progressbar"
+                          style={{ width: `${progressValue}%` }}
+                        ></div>
+                      </div>
+                    }
                   </Col>
                 </Row>
                 <Row className="d-flex justify-content-start align-items-center text-secondary-400 fs-16 my-3">
                   <Col xs={2}>Dates:</Col>
                   <Col xs={10} className="text-secondary-500  fw-bold pe-4">
-                    October 15, 2024 {`->`} December 20, 2024
+                    {progressValue ? (
+                      `October 15, 2024 -> December 20, 2024`
+                    ) : (
+                      <Skeleton count={1} width={400} />
+                    )}
                   </Col>
                 </Row>
                 <Row className="d-flex justify-content-start align-items-center text-secondary-400 fs-16 my-3">
                   <Col xs={2}>Projetct Manager:</Col>
                   <Col xs={10} className="text-secondary-500 fw-bold pe-4">
                     <MemberName
-                      name="Rainder Brown"
+                      name={progressValue ? 'Rainder Brown' : ''}
                       image="../assets/images/jack.png"
                     />
                   </Col>
@@ -99,16 +119,16 @@ function Projects() {
                     className="text-secondary-500 d-flex align-items-center fw-bold pe-4"
                   >
                     <MemberName
-                      name="Alex Johnson"
-                      image="../assets/images/jack.png"
+                      name={progressValue ? 'Alex Johnson' : ''}
+                      image="../assets/images/rihana.png"
                     />
                     <MemberName
-                      name="Maria Lopez"
-                      image="../assets/images/jack.png"
+                      name={progressValue ? 'Maria Lopez' : ''}
+                      image="../assets/images/json.png"
                     />
                     <MemberName
-                      name="James Lee"
-                      image="../assets/images/jack.png"
+                      name={progressValue ? 'James Lee' : ''}
+                      image="../assets/images/mina.png"
                     />
                     <InviteMember />
                   </Col>

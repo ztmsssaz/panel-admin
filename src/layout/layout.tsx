@@ -18,8 +18,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <GlobalStyle />
       <div className="d-flex">
         <div
-          className="my-3 d-none d-md-block position-relative w-25"
-          style={{ transition: '0.3s', width: toggle ? '235px' : '50px' }}
+          className="my-3 d-none d-md-block position-relative"
+          style={{ transition: '0.3s', width: toggle ? '240px' : '50px' }}
         >
           <Sidebar open={toggle} onClick={handleSidebar} />
         </div>
