@@ -138,3 +138,86 @@ export function CalendarIcon({ width = 16 }: { width?: number }) {
     </svg>
   );
 }
+export function SearchIcon({ width = 12 }: { width?: number }) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 0C6.41421 0 6.75 0.335786 6.75 0.75V11.25C6.75 11.6642 6.41421 12 6 12C5.58579 12 5.25 11.6642 5.25 11.25V0.75C5.25 0.335786 5.58579 0 6 0Z"
+        fill="white"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0 6C0 5.58579 0.335786 5.25 0.75 5.25H11.25C11.6642 5.25 12 5.58579 12 6C12 6.41421 11.6642 6.75 11.25 6.75H0.75C0.335786 6.75 0 6.41421 0 6Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+export function PlusIcon({ width = 20 }: { width?: number }) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.58366 17.4993C13.9559 17.4993 17.5003 13.9549 17.5003 9.58268C17.5003 5.21043 13.9559 1.66602 9.58366 1.66602C5.2114 1.66602 1.66699 5.21043 1.66699 9.58268C1.66699 13.9549 5.2114 17.4993 9.58366 17.4993Z"
+        stroke="#161618"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18.3337 18.3327L16.667 16.666"
+        stroke="#161618"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function SingleCheckIcon({ width = 11 }: { width?: number }) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox="0 0 11 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.96837 5.96875L9.26525 0.671875C9.39025 0.546875 9.53608 0.484375 9.70275 0.484375C9.86942 0.484375 10.0152 0.546875 10.1402 0.671875C10.2652 0.796875 10.3277 0.945417 10.3277 1.1175C10.3277 1.28958 10.2652 1.43792 10.1402 1.5625L4.40587 7.3125C4.28087 7.4375 4.13504 7.5 3.96837 7.5C3.80171 7.5 3.65587 7.4375 3.53087 7.3125L0.843374 4.625C0.718374 4.5 0.658374 4.35167 0.663374 4.18C0.668374 4.00833 0.733583 3.85979 0.858999 3.73438C0.984416 3.60896 1.13296 3.54646 1.30462 3.54688C1.47629 3.54729 1.62462 3.60979 1.74962 3.73438L3.96837 5.96875Z"
+        fill="#3863C6"
+      />
+    </svg>
+  );
+}
+export function SendIcon({ width = 14 }: { width?: number }) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.54977 2.74012L9.91727 0.617616C12.7748 -0.334884 14.3273 1.22512 13.3823 4.08262L11.2598 10.4501C9.83477 14.7326 7.49477 14.7326 6.06977 10.4501L5.43977 8.56012L3.54977 7.93012C-0.732734 6.50512 -0.732734 4.17262 3.54977 2.74012Z"
+        fill="white"
+      />
+    </svg>
+  );
+}

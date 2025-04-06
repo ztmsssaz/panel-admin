@@ -23,6 +23,7 @@ const Style = styled.div`
           display: inline-block;
           padding: 10px;
           position: relative;
+          width: 100%;
           &.you {
             background: ${colors.info_100};
             border-radius: 10px 10px 10px 0;

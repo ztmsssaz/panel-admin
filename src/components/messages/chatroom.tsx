@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import ChatItem from './chatItem'
-import {Tab, Tabs} from 'react-bootstrap'
-import {colors} from '../../layout/theme/colors'
-import Search from './search'
+import styled from 'styled-components';
+import ChatItem from './chatItem';
+import { Tab, Tabs } from 'react-bootstrap';
+import { colors } from '../../layout/theme/colors';
+import Search from './search';
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
     color: ${colors.secondary_400};
@@ -18,25 +18,23 @@ const Style = styled.div`
     box-shadow: 0px 1px 2px 0px rgba(82, 88, 102, 0.06);
     border-bottom: solid 2px ${colors.info_600} !important;
   }
-`
-function Chatroom() {
+`;
+function Chatroom({ chatList }: { chatList: boolean }) {
   return (
-    <Style>
-      <div>
-        <Search />
-      </div>
-      <Tabs defaultActiveKey='All' id='chatroom-tabs' className='mb-3'>
-        <Tab eventKey='All' title='All'>
-          <ChatItem />
-          <ChatItem />
-          <ChatItem />
+    <Style className="mt-2">
+      <Search />
+      <Tabs defaultActiveKey="All" id="chatroom-tabs" className="mb-3">
+        <Tab eventKey="All" title="All">
+          <ChatItem data={chatList} />
+          <ChatItem data={chatList} />
+          <ChatItem data={chatList} />
         </Tab>
-        <Tab eventKey='Unread' title='Unread'>
+        <Tab eventKey="Unread" title="Unread">
           Tab content for Unread
         </Tab>
       </Tabs>
     </Style>
-  )
+  );
 }
 
-export default Chatroom
+export default Chatroom;

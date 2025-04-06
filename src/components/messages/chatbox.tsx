@@ -1,10 +1,13 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Style from './style';
 import { InfoButton } from '../ui/buttons';
 import { Container } from 'react-bootstrap';
+import { SendIcon } from '../ui/icons/svgs';
+import Skeleton from 'react-loading-skeleton';
 
 const Chat = ({}) => {
   const [currentMessage, setCurrentMessage] = useState('');
+  const [loading, setLoading] = useState<boolean>(true);
   const lastMessageRef = useRef<any>(null); // مرجع آخرین پیام
   const [messages, setMessages] = useState([
     {
@@ -21,7 +24,7 @@ const Chat = ({}) => {
     },
     {
       text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
-      sender: 'me',
+      sender: 'other',
       time: '10:04 AM',
       profile: '../../assets/images/jack.png',
     },
@@ -33,7 +36,7 @@ const Chat = ({}) => {
     },
     {
       text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
-      sender: 'me',
+      sender: 'other',
       time: '10:04 AM',
       profile: '../../assets/images/jack.png',
     },
@@ -45,7 +48,7 @@ const Chat = ({}) => {
     },
     {
       text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
-      sender: 'me',
+      sender: 'other',
       time: '10:04 AM',
       profile: '../../assets/images/jack.png',
     },
@@ -89,15 +92,29 @@ const Chat = ({}) => {
   };
   // end renderFarms
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  }, []);
+
   return (
     <Style className="h-100">
       <header className="border-start border-secondary-200 cursor-pointer d-flex align-items-center border-bottom border-secondary-200 py-md-4 px-3">
         <div>
-          <img width="32" src="../../assets/images/mina.png" alt="profile" />
+          {!loading ? (
+            <img width="32" src="../../assets/images/mina.png" alt="profile" />
+          ) : (
+            <Skeleton width={32} height={32} circle baseColor="#ccc" />
+          )}
         </div>
         <div className="w-100 ps-3">
-          <h4 className="fw-semibold fs-14 mb-1">Sophia Lee</h4>
-          <p className="fw-bold fs-12 text-primary-600">Active</p>
+          <h4 className="fw-semibold fs-14 mb-1">
+            {!loading ? 'Sophia Lee' : <Skeleton width={100} />}
+          </h4>
+          <p className="fw-bold fs-12 text-primary-600">
+            {!loading ? 'Active' : <Skeleton width={45} />}
+          </p>
         </div>
       </header>
       <div className="border-start border-secondary-200 chat py-3">
@@ -118,15 +135,19 @@ const Chat = ({}) => {
                     <div
                       className={`chat-profile ${messageContent.sender === 'me' ? 'ms-2' : 'me-2'}`}
                     >
-                      <img
-                        width={24}
-                        src={
-                          messageContent.sender === 'me'
-                            ? messageContent.profile
-                            : '../../assets/images/mina.png'
-                        }
-                        alt="profile"
-                      />
+                      {!loading ? (
+                        <img
+                          width={24}
+                          src={
+                            messageContent.sender === 'me'
+                              ? messageContent.profile
+                              : '../../assets/images/mina.png'
+                          }
+                          alt="profile"
+                        />
+                      ) : (
+                        <Skeleton width={24} height={24} circle />
+                      )}
                     </div>
                     <div
                       className={
@@ -136,13 +157,28 @@ const Chat = ({}) => {
                       }
                     >
                       <div className="message-content">
-                        <p className="fs-14 text-secandory-700 mb-0">
-                          {messageContent.text}
-                        </p>
+                        {!loading ? (
+                          <p className="fs-14 text-secandory-700 mb-0">
+                            {messageContent.text}
+                          </p>
+                        ) : (
+                          <Skeleton
+                            wrapper={({ children }) => (
+                              <p className="d-block">{children}</p>
+                            )}
+                            containerClassName="d-block"
+                            count={2}
+                            baseColor="#fff"
+                          />
+                        )}
                       </div>
                       <div className="message-meta text-end">
                         <span className="fs-10 text-secandory-400 mb-0">
-                          {messageContent.time}
+                          {!loading ? (
+                            messageContent.time
+                          ) : (
+                            <Skeleton width={40} baseColor="#fff" />
+                          )}
                         </span>
                       </div>
                     </div>
@@ -207,19 +243,7 @@ const Chat = ({}) => {
                 classes="d-flex align-items-center justify-content-center h-100 px-3"
                 onClick={sendMessage}
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.54977 2.74012L9.91727 0.617616C12.7748 -0.334884 14.3273 1.22512 13.3823 4.08262L11.2598 10.4501C9.83477 14.7326 7.49477 14.7326 6.06977 10.4501L5.43977 8.56012L3.54977 7.93012C-0.732734 6.50512 -0.732734 4.17262 3.54977 2.74012Z"
-                    fill="white"
-                  />
-                </svg>
-
+                <SendIcon />
                 <span className="px-2">Send</span>
               </InfoButton>
             </div>
