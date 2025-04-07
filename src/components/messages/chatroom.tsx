@@ -46,8 +46,8 @@ function Chatroom({ chatList }: { chatList: boolean }) {
           <div
             className="overflow-y-scroll bg-white"
             style={{
-              maxHeight: 'calc(100vh - 250px)',
-              minHeight: 'calc(100vh - 250px)',
+              maxHeight: 'calc(100vh - 230px)',
+              minHeight: 'calc(100vh - 230px)',
             }}
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item) => (
@@ -65,8 +65,8 @@ function Chatroom({ chatList }: { chatList: boolean }) {
           <div
             className="overflow-y-scroll bg-white"
             style={{
-              maxHeight: 'calc(100vh - 250px)',
-              minHeight: 'calc(100vh - 250px)',
+              maxHeight: 'calc(100vh - 230px)',
+              minHeight: 'calc(100vh - 230px)',
             }}
           >
             <ChatItem

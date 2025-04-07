@@ -409,7 +409,11 @@ const Sidebar = memo(
             <Col xs={12}>
               <FavoritesButtons />
             </Col>
-            <Col xs={12} className="position-absolute bottom-0 start-0 ps-0">
+            <Col
+              xs={12}
+              className="position-absolute start-0 ps-0"
+              style={{ bottom: '15px' }}
+            >
               <Others />
             </Col>
           </Row>

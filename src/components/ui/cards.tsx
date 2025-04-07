@@ -4,13 +4,15 @@ import CircleProgress from './circle-progress';
 import Skeleton from 'react-loading-skeleton';
 import { CalendarIcon, CommentIcon } from './icons/svgs';
 
-function CardSection({ title }: { title: string }) {
+function CardSection({ data }: { data: { id: number; title: string } }) {
   const randomValue = Math.floor(Math.random() * 60 + 1);
   return (
     <Card className="rounded-10 mb-2 w-100 mx-auto">
       <CardBody>
         <div className="d-flex justify-content-between align-items-center fs-12">
-          <LevelLabel level={title ? Math.floor(Math.random() * 3) + 1 : 0} />
+          <LevelLabel
+            level={data.title ? Math.floor(Math.random() * 3) + 1 : 0}
+          />
           <div className="cursor-pointer">
             <svg
               width="16"
@@ -35,10 +37,10 @@ function CardSection({ title }: { title: string }) {
           </div>
         </div>
         <CardTitle className="text-secondary-700 fs-14 fw-semibold mt-3 mb-2">
-          {title || <Skeleton count={1} height={16} />}
+          {data.title || <Skeleton count={1} height={16} />}
         </CardTitle>
         <div className="d-flex align-items-center">
-          {title ? (
+          {data.title ? (
             <div className="d-flex align-items-center me-xl-4 me-md-2 me-1">
               <CalendarIcon />
               <time
@@ -55,11 +57,11 @@ function CardSection({ title }: { title: string }) {
               containerClassName="d-flex align-items-center"
             />
           )}
-          {title ? (
+          {data.title ? (
             <div className="d-flex align-items-center">
               <CommentIcon />
               <span className="fs-12 fw-bold text-secondary-400 ms-1">
-                {title}
+                {12}
               </span>
             </div>
           ) : (
@@ -72,7 +74,7 @@ function CardSection({ title }: { title: string }) {
         </div>
         <div className="border-bottom border-secondary-200 my-3"></div>
         <div className="d-flex align-items-center justify-content-between">
-          {title ? (
+          {data.title ? (
             <div className="d-flex align-items-center">
               <div className="rounded-circle border border-3 border-white z-3">
                 <img width={25} src="../../assets/images/json.png" />
@@ -100,7 +102,7 @@ function CardSection({ title }: { title: string }) {
             />
           )}
           <div className="d-flex align-items-center">
-            {title ? (
+            {data.title ? (
               <CircleProgress width={22} value={randomValue} />
             ) : (
               <Skeleton
@@ -112,7 +114,7 @@ function CardSection({ title }: { title: string }) {
               />
             )}
             <span className="fs-12 fw-bold ms-1">
-              {title ? (
+              {data.title ? (
                 `${randomValue}%`
               ) : (
                 <>
