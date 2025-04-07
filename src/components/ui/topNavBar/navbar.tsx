@@ -1,14 +1,19 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import Notifications from './notifications';
 
-function TopNavbar({ road }: { road: string }) {
+function TopNavbar({ road, classes = '' }: { road: string; classes?: string }) {
   return (
-    <Container fluid className="fs-18s py-3">
+    <Container
+      fluid
+      className={`fs-18 py-md-3 pt-3 border-bottom border-secondary-200 ${classes}`}
+    >
       <Row>
         <Col xs={12}>
           <div className="d-flex align-items-center justify-content-between">
             <div>
-              <span className="text-capitalize fw-bold fs-18 pe-2">{road}</span>
+              <span className="text-capitalize text-secondary-300 fw-bold fs-18 pe-2">
+                {road}
+              </span>
               {road !== 'messages' && (
                 <>
                   <svg
@@ -27,11 +32,11 @@ function TopNavbar({ road }: { road: string }) {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="ps-2 fw-bold">Example Title</span>
+                  <span className="ps-2 fw-bold fs-18">Example Title</span>
                 </>
               )}
             </div>
-            <Notifications />
+            <Notifications classes="d-none d-md-flex" />
           </div>
         </Col>
       </Row>

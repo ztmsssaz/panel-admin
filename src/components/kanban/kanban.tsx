@@ -40,9 +40,9 @@ function Kanban() {
 
   return (
     <Container fluid>
-      <Row>
+      <Row className="flex-nowrap overflow-x-scroll">
         {columns.map((title, index) => (
-          <Col xs={3} key={title} className="p-0">
+          <Col xs={7} md={3} key={title} className="p-0 ">
             <div
               className={`bg-secondary-50 rounded-10 ${index != columns.length && 'me-2'}`}
             >

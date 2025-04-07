@@ -227,3 +227,70 @@ export function SendIcon({ width = 14 }: { width?: number }) {
     </svg>
   );
 }
+
+export function SidebarIcon({
+  width = 24,
+  color = '#161618',
+}: {
+  width?: number;
+  color?: string;
+}) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M3 7H21" stroke={color} strokWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M3 12H21"
+        stroke={color}
+        stroke-width="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M3 17H21"
+        stroke={color}
+        stroke-width="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function ArrowLeftIcon({
+  width = 16,
+  color = '#161618',
+}: {
+  width?: number;
+  color?: string;
+}) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.37967 3.95312L2.33301 7.99979L6.37967 12.0465"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.6663 8H2.44629"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

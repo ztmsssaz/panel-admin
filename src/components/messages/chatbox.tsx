@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import Style from './style';
 import { InfoButton } from '../ui/buttons';
 import { Container } from 'react-bootstrap';
-import { SendIcon } from '../ui/icons/svgs';
+import { ArrowLeftIcon, SendIcon } from '../ui/icons/svgs';
 import Skeleton from 'react-loading-skeleton';
 import { useSearchParams } from 'react-router';
-import { VideoCamera } from '../ui/icons';
 import CallAndOthers from './call&others';
+import MobileNavbar from '../ui/topNavBar/mobileNavbar';
 
 const Chat = ({}) => {
   const [searchParams] = useSearchParams();
@@ -106,8 +106,15 @@ const Chat = ({}) => {
 
   return (
     <Style className="h-100">
-      <header className="d-flex align-items-center justify-content-between border-start border-secondary-200 border-bottom border-secondary-200 py-md-4 px-3">
+      <MobileNavbar road={'Messages'} />
+      <header
+        className="d-flex align-items-center justify-content-between border-start border-secondary-200
+       border-bottom border-secondary-200 py-3 py-md-4 px-3"
+      >
         <div className="d-flex align-items-center">
+          <div className="me-3">
+            <ArrowLeftIcon />
+          </div>
           <div>
             {!loading ? (
               <img

@@ -14,7 +14,7 @@ const Style = styled.div`
 `;
 function Search() {
   return (
-    <Style className="pt-md-4 pb-1">
+    <Style className="py-3 pt-md-4 pb-md-1">
       <Container fluid className="px-0">
         <Row>
           <Col xs={12}>
@@ -34,7 +34,7 @@ function Search() {
               </Form.Group>
               <InfoButton classes="d-flex align-items-center ms-2">
                 <SearchIcon />
-                <span className="px-2 d-none d-lg-inline-block">New</span>
+                <span className="px-2">New</span>
               </InfoButton>
             </Form>
           </Col>

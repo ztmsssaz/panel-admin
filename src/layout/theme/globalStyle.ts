@@ -38,7 +38,15 @@ const GlobalStyle = createGlobalStyle`
 }
   /* Font Sizes */
   ${sizes.map((size) => `.fs-${size} { font-size: ${size}px; }`).join('\n')}
-
+/* برای اندازه‌های موبایل (کمتر از 768px) */
+  @media (max-width: 768px) {
+    ${sizes.map(
+      (size) => `
+      .fs-md-${size} {
+        font-size: ${size}px; /* کاهش اندازه فونت برای موبایل */
+      }`,
+    )}
+  }
   /* Default Styles */
   * {
     margin: 0;

@@ -8,7 +8,10 @@ const Style = styled.div`
         overflow-y: scroll;
         padding-bottom: 60px;
         height: 100%;
-        max-height: calc(100vh - 210px);
+        max-height: calc(100vh - 120px);
+        @media screen and(min-width:"768px") {
+          max-height: calc(100vh - 210px);
+        }
         .chat-profile {
           max-width: 24px;
           border-radius: 15px;

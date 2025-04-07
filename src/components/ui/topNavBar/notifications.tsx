@@ -1,13 +1,13 @@
 import Skeleton from 'react-loading-skeleton';
 import { MessageIcon, RingIcon } from '../icons';
 
-function Notifications() {
+function Notifications({ classes }: { classes?: string }) {
   const isMobile = window.innerWidth < 768;
   const mobileClasses = 'rounded-10 rounded-10 light-shadow';
   const title: boolean = true;
   return (
-    <div className="d-flex align-items-center">
-      <div className="d-flex align-items-center justify-content-between">
+    <div className={`d-flex align-items-center ${classes}`}>
+      <div className="d-flex align-items-center justify-content-between d-none d-md-block">
         {title ? (
           <div className="d-flex align-items-center">
             <div className="rounded-circle z-1">
@@ -44,14 +44,16 @@ function Notifications() {
           />
         )}
       </div>
-      <RingIcon
-        size={isMobile ? 16 : 20}
-        classes={`${isMobile ? mobileClasses : 'border border-secondary-100 border-2 rounded-12'} cursor-pointer me-1`}
-      />
-      <MessageIcon
-        size={isMobile ? 16 : 20}
-        classes={`${isMobile ? mobileClasses : 'border border-secondary-100 border-2 rounded-12'} cursor-pointer me-1`}
-      />
+      <div className="d-flex">
+        <RingIcon
+          size={isMobile ? 16 : 20}
+          classes={`${isMobile ? mobileClasses : 'border border-secondary-200 border-2 rounded-12'} cursor-pointer me-1`}
+        />
+        <MessageIcon
+          size={isMobile ? 16 : 20}
+          classes={`${isMobile ? mobileClasses : 'border border-secondary-200 border-2 rounded-12'} cursor-pointer me-1`}
+        />
+      </div>
     </div>
   );
 }

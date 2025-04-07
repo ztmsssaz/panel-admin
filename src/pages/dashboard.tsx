@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import TopNavbar from '../components/ui/topNavBar/navbar';
-import ButtonSwitcher from '../components/ui/buttonsSwitcher';
-import DropdownMenu from '../components/ui/dropDown';
+// import ButtonSwitcher from '../components/ui/buttonsSwitcher';
+// import DropdownMenu from '../components/ui/dropDown';
 
 function Dashboard() {
   return (
@@ -9,8 +9,8 @@ function Dashboard() {
       <Row>
         <Col xs={12}>
           <TopNavbar road={'Dasboard'} />
-          <ButtonSwitcher />
-          <DropdownMenu />
+          {/* <ButtonSwitcher />
+          <DropdownMenu /> */}
         </Col>
       </Row>
     </Container>

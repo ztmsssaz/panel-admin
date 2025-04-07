@@ -1,6 +1,10 @@
 function InviteMember() {
   return (
-    <div className="border border-secondary-100 rounded-10 d-flex align-items-center px-2 py-1 cursor-pointer">
+    <div
+      style={{ minWidth: '32px', minHeight: '32px' }}
+      className="d-flex align-items-center justify-content-center border border-secoundery-100s rounded-10 
+      d-flex align-items-center cursor-pointer ms-md-2"
+    >
       <svg
         width="18"
         height="18"
@@ -23,7 +27,7 @@ function InviteMember() {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="mx-2">Invite</span>
+      <span className="ms-md-2 d-none d-md-block">Invite</span>
     </div>
   );
 }

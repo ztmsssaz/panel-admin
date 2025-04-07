@@ -1,6 +1,7 @@
 import { Col, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router';
 import { ArrowDown } from '../icons/svgs';
+import BreakLine from '../breakLine';
 
 function Others() {
   const navLinkClasses =
@@ -89,7 +90,7 @@ function Others() {
           </NavLink>
         </Col>
         <Col>
-          <div className="border-bottom border-secondary-200 my-4"></div>
+          <BreakLine />
         </Col>
 
         <Col xs={12}>

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { colors } from '../../layout/theme/colors';
 import ChatItem from './chatItem';
 import Search from './search';
+import PivotTeamDropDown from '../ui/sidebar/pivotTeam';
 
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
@@ -30,6 +31,9 @@ function Chatroom({ chatList }: { chatList: boolean }) {
   }, []);
   return (
     <Style className="mt-2">
+      <div className="d-flex d-md-none">
+        <PivotTeamDropDown />
+      </div>
       <Search />
       <Tabs defaultActiveKey="All" id="chatroom-tabs" className="mb-3">
         <Tab eventKey="All" title="All">

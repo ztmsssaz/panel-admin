@@ -3,7 +3,7 @@ import { PhoneIcon, VerticalDots, VideoCameraIcon } from '../ui/icons';
 
 function CallAndOthers() {
   const isMobile = window.innerWidth < 768;
-  const mobileClasses = 'rounded-10 rounded-10 light-shadow';
+  const mobileClasses = 'rounded-10 light-shadow';
   return (
     <div className="d-flex align-items-center">
       <VideoCameraIcon

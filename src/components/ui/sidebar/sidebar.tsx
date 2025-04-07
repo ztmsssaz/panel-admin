@@ -1,12 +1,12 @@
+import { memo } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router';
+import { colors } from '../../../layout/theme/colors';
 import { Check } from '../icons';
-import styled from 'styled-components';
-import { memo } from 'react';
 import FavoritesButtons from './favorites';
 import Others from './others';
 import PivotTeamDropDown from './pivotTeam';
-import { colors } from '../../../layout/theme/colors';
+import styled from 'styled-components';
 const Style = styled.div`
   * {
     transition: all 0.4s;
