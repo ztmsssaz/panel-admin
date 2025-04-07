@@ -9,6 +9,9 @@ import Chat from '../components/messages/chatbox';
 const Dashboard = lazy(() => import('../pages/dashboard'));
 const Projects = lazy(() => import('../pages/projects'));
 const Messages = lazy(() => import('../pages/messages'));
+const MobileChatBox = lazy(
+  () => import('../components/messages/mobileChatBox'),
+);
 
 const MainRouter = () => {
   // #ignore eslint
@@ -21,7 +24,7 @@ const MainRouter = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/messages" element={<Messages />} />
-            <Route path="/messages/:chatId" element={<Chat />} />
+            <Route path="/messages/:chatId" element={<MobileChatBox />} />
           </Routes>
         </Layout>
       </Suspense>

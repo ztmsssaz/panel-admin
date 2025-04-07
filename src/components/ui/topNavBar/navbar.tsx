@@ -3,10 +3,7 @@ import Notifications from './notifications';
 
 function TopNavbar({ road, classes = '' }: { road: string; classes?: string }) {
   return (
-    <Container
-      fluid
-      className={`fs-18 py-md-3 pt-3 border-bottom border-secondary-200 ${classes}`}
-    >
+    <Container fluid className={`fs-18 py-md-3 pt-3 ${classes}`}>
       <Row>
         <Col xs={12}>
           <div className="d-flex align-items-center justify-content-between">

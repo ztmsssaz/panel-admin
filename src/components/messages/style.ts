@@ -5,13 +5,11 @@ const Style = styled.div`
   .chat {
     &-body {
       .message-container {
+        max-height: calc(100vh - 220px);
         overflow-y: scroll;
         padding-bottom: 60px;
         height: 100%;
-        max-height: calc(100vh - 120px);
-        @media screen and(min-width:"768px") {
-          max-height: calc(100vh - 210px);
-        }
+        background-color: ${colors.white};
         .chat-profile {
           max-width: 24px;
           border-radius: 15px;
@@ -26,7 +24,7 @@ const Style = styled.div`
           display: inline-block;
           padding: 10px;
           position: relative;
-          width: 100%;
+          width: max-content;
           &.you {
             background: ${colors.info_100};
             border-radius: 10px 10px 10px 0;
@@ -66,6 +64,24 @@ const Style = styled.div`
         top: 50%;
         right: 15px;
         transform: translateY(-50%);
+      }
+    }
+    &.mobile {
+      position: relative;
+      top: 140px;
+      overflow: hidden;
+
+      .chat-body {
+        .message-container {
+          overflow: hidden;
+          min-height: calc(100vh - 200px);
+        }
+      }
+      .chat-footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        right: 0;
       }
     }
   }

@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import Style from './style';
 import { InfoButton } from '../ui/buttons';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { ArrowLeftIcon, SendIcon } from '../ui/icons/svgs';
 import Skeleton from 'react-loading-skeleton';
-import { useSearchParams } from 'react-router';
+// import { useSearchParams } from 'react-router';
 import CallAndOthers from './call&others';
-import MobileNavbar from '../ui/topNavBar/mobileNavbar';
+import { NavLink } from 'react-router';
 
 const Chat = ({}) => {
-  const [searchParams] = useSearchParams();
-  const chatId = searchParams.get('chatId');
-  console.log(chatId);
+  // const [searchParams] = useSearchParams();
+  // const chatId = searchParams.get('chatId');
   const [currentMessage, setCurrentMessage] = useState('');
+
   const [loading, setLoading] = useState<boolean>(true);
   const lastMessageRef = useRef<any>(null); // مرجع آخرین پیام
   const [messages, setMessages] = useState([
@@ -105,16 +105,15 @@ const Chat = ({}) => {
   }, []);
 
   return (
-    <Style className="h-100">
-      <MobileNavbar road={'Messages'} />
+    <Style className="position-relative">
       <header
         className="d-flex align-items-center justify-content-between border-start border-secondary-200
        border-bottom border-secondary-200 py-3 py-md-4 px-3"
       >
         <div className="d-flex align-items-center">
-          <div className="me-3">
+          <NavLink className="d-md-none me-3" to="/messages">
             <ArrowLeftIcon />
-          </div>
+          </NavLink>
           <div>
             {!loading ? (
               <img
@@ -137,10 +136,10 @@ const Chat = ({}) => {
         </div>
         <CallAndOthers />
       </header>
-      <div className="border-start border-secondary-200 chat py-3">
-        <div className="chat-body">
-          <Container fluid="lg">
-            <div className="message-container w-100 hideScroll">
+      <div className="chat border-start border-secondary-200 py-3">
+        <div className="chat-body ">
+          <div className="message-container w-100 overflow-scroll hideScroll">
+            <Container fluid="lg">
               {messages.map((messageContent, index) => {
                 return (
                   <div
@@ -209,11 +208,11 @@ const Chat = ({}) => {
                 className="d-flex align-items-end mb-3 w-75"
                 style={{ minHeight: '75px', width: '100%' }}
               ></div>
-            </div>
-          </Container>
+            </Container>
+          </div>
         </div>
         <div className="chat-footer rounded-bottom-10 border-start border-secondary-200 bg-white">
-          <div className="position-relative d-flex">
+          <div className="d-flex">
             <input
               className="w-100 bg-white rounded-bottom-10 py-3 px-3"
               value={currentMessage}
@@ -260,7 +259,7 @@ const Chat = ({}) => {
               </div>
 
               <InfoButton
-                classes="d-flex align-items-center justify-content-center h-100 px-3"
+                classes="d-flex align-items-center justify-content-center px-3"
                 onClick={sendMessage}
               >
                 <SendIcon />

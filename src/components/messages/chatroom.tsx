@@ -21,6 +21,12 @@ const Style = styled.div`
     box-shadow: 0px 1px 2px 0px rgba(82, 88, 102, 0.06);
     border-bottom: solid 2px ${colors.info_600} !important;
   }
+  .chatItems {
+    .tab-content #chatroom-tabs-tabpane-All {
+      max-height: calc(100vh - 100px);
+      overflow-y: scroll;
+    }
+  }
 `;
 
 function Chatroom({ chatList }: { chatList: boolean }) {
@@ -30,34 +36,46 @@ function Chatroom({ chatList }: { chatList: boolean }) {
     setActiveChat(id);
   }, []);
   return (
-    <Style className="mt-2">
+    <Style className="chatItems mt-2">
       <div className="d-flex d-md-none">
         <PivotTeamDropDown />
       </div>
       <Search />
       <Tabs defaultActiveKey="All" id="chatroom-tabs" className="mb-3">
         <Tab eventKey="All" title="All">
-          <ChatItem
-            data={chatList}
-            id={1}
-            active={activeChat}
-            onActive={activateChat}
-          />
-          <ChatItem
-            data={chatList}
-            id={2}
-            active={activeChat}
-            onActive={activateChat}
-          />
-          <ChatItem
-            data={chatList}
-            id={3}
-            active={activeChat}
-            onActive={activateChat}
-          />
+          <div
+            className="overflow-y-scroll bg-white"
+            style={{
+              maxHeight: 'calc(100vh - 250px)',
+              minHeight: 'calc(100vh - 250px)',
+            }}
+          >
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item) => (
+              <ChatItem
+                key={item}
+                data={chatList}
+                id={1}
+                active={activeChat}
+                onActive={activateChat}
+              />
+            ))}
+          </div>
         </Tab>
-        <Tab eventKey="Unread" title="Unread">
-          Tab content for Unread
+        <Tab eventKey="Unread" title="Unread(1)">
+          <div
+            className="overflow-y-scroll bg-white"
+            style={{
+              maxHeight: 'calc(100vh - 250px)',
+              minHeight: 'calc(100vh - 250px)',
+            }}
+          >
+            <ChatItem
+              data={chatList}
+              id={1}
+              active={activeChat}
+              onActive={activateChat}
+            />
+          </div>
         </Tab>
       </Tabs>
     </Style>

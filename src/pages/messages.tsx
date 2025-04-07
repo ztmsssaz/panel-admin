@@ -4,7 +4,6 @@ import ChatBox from '../components/messages/chatbox';
 import Chatroom from '../components/messages/chatroom';
 import { useEffect, useState } from 'react';
 import MobileNavbar from '../components/ui/topNavBar/mobileNavbar';
-import BreakLine from '../components/ui/breakLine';
 
 function Messages() {
   const [messages, setMessages] = useState<boolean>(false);
@@ -18,23 +17,17 @@ function Messages() {
 
   return (
     <Container fluid className="h-inherit">
-      <Row className="h-inherit ">
+      <Row className="h-inherit">
         <Col xs={12} className="px-0">
           <MobileNavbar road={'messages'} />
           <TopNavbar road={'messages'} classes="d-none d-md-block" />
           <Container fluid className="h-inherit">
-            <Row className="h-inherit">
+            <Row className="border-top border-secondary-200 h-inherit">
               <Col xs={12} md={5} lg={4} xl={3}>
                 <Chatroom chatList={messages} />
               </Col>
               {!isMobile && (
-                <Col
-                  xs={12}
-                  md={7}
-                  lg={8}
-                  xl={9}
-                  className="position-relative px-0"
-                >
+                <Col xs={12} md={7} lg={8} xl={9} className="px-0">
                   <ChatBox />
                 </Col>
               )}

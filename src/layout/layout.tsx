@@ -26,8 +26,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className="vh-100 w-100 overflow-y-scroll hideScroll">
           <div
             className="bg-white rounded-3 my-md-3"
-            s
-            style={{ boxShadow: '0px 1px 2px 0px rgba(82, 88, 102, 0.06)' }}
+            style={{
+              boxShadow: '0px 1px 2px 0px rgba(82, 88, 102, 0.06)',
+            }}
           >
             {children}
           </div>
