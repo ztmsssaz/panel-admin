@@ -3,6 +3,7 @@ import Skeleton from 'react-loading-skeleton';
 function TopColumn({
   title,
   sleepTime,
+  ...others
 }: {
   title: string;
   sleepTime: boolean;
@@ -34,7 +35,7 @@ function TopColumn({
   };
 
   return (
-    <div className="d-flex align-items-center ms-3">
+    <div {...others} className="d-flex align-items-center ms-3">
       <span
         className={`d-inline-block rounded-circle ${whatColorIs(title)}`}
         style={{ width: '10px', height: '10px' }}

@@ -1,18 +1,18 @@
 import { Card, CardBody, CardTitle } from 'react-bootstrap';
-import LevelLabel from './levelLabel';
-import CircleProgress from './circle-progress';
 import Skeleton from 'react-loading-skeleton';
+import CircleProgress from './circle-progress';
 import { CalendarIcon, CommentIcon } from './icons/svgs';
+import LevelLabel from './levelLabel';
 
-function CardSection({ data }: { data: { id: number; title: string } }) {
-  const randomValue = Math.floor(Math.random() * 60 + 1);
+import { memo } from 'react';
+import { Task } from '../../types/types';
+
+const CardSection = memo(({ data }: { data: Task }) => {
   return (
-    <Card className="rounded-10 mb-2 w-100 mx-auto">
+    <Card className="rounded-10 mb-2 w-100 mx-auto z-4">
       <CardBody>
         <div className="d-flex justify-content-between align-items-center fs-12">
-          <LevelLabel
-            level={data.title ? Math.floor(Math.random() * 3) + 1 : 0}
-          />
+          <LevelLabel level={data.level} />
           <div className="cursor-pointer">
             <svg
               width="16"
@@ -103,7 +103,7 @@ function CardSection({ data }: { data: { id: number; title: string } }) {
           )}
           <div className="d-flex align-items-center">
             {data.title ? (
-              <CircleProgress width={22} value={randomValue} />
+              <CircleProgress width={22} value={data.progress} />
             ) : (
               <Skeleton
                 circle
@@ -114,8 +114,8 @@ function CardSection({ data }: { data: { id: number; title: string } }) {
               />
             )}
             <span className="fs-12 fw-bold ms-1">
-              {data.title ? (
-                `${randomValue}%`
+              {data.progress ? (
+                data.progress
               ) : (
                 <>
                   <Skeleton width={24} height={18} />
@@ -127,6 +127,6 @@ function CardSection({ data }: { data: { id: number; title: string } }) {
       </CardBody>
     </Card>
   );
-}
+});
 
 export default CardSection;
