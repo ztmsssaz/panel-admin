@@ -172,7 +172,7 @@ function Projects() {
                 <Col xs={8} sm={6}>
                   <ul
                     className="nav nav-tabs p-1 bg-secondary-100 rounded"
-                    style={{ maxWidth: '265px', minWidth: '265px' }}
+                    style={{ maxWidth: '267px', minWidth: '265px' }}
                   >
                     <li className="nav-item">
                       <button
