@@ -1,4 +1,4 @@
-import { SortableContext, useSortable } from '@dnd-kit/sortable';
+import { horizontalListSortingStrategy, SortableContext, useSortable } from '@dnd-kit/sortable';
 import { Button } from 'react-bootstrap';
 import TopColumn from './topColumn';
 
@@ -38,10 +38,10 @@ function ColumnContainer(props: Props) {
 
   if (isDragging) {
     return (
-      <div ref={setNodeRef} style={style} className="opacity-50  me-1">
+      <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="opacity-25 me-1">
         <div className="p-1">
           <TopColumn title={column.title} sleepTime={sleepTime} />
-          <SortableContext items={taskIds}>
+          <SortableContext items={taskIds} strategy={horizontalListSortingStrategy}> 
             {tasks.map((item: Task) => (
               <TaskContainer key={item.id} task={item} />
             ))}
@@ -81,9 +81,10 @@ function ColumnContainer(props: Props) {
     <div
       ref={setNodeRef}
       style={style}
-      className={`bg-secondary-50 rounded-10  me-1`}
+      {...attributes} {...listeners}
+      className={`bg-secondary-50 rounded-10 me-1`}
     >
-      <div {...attributes} {...listeners} className="p-1">
+      <div className="p-1">
         <TopColumn title={column.title} sleepTime={sleepTime} />
         <SortableContext items={taskIds}>
           <div

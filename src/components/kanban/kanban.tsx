@@ -162,6 +162,8 @@ function Kanban() {
   };
 
   const handleOverDrag = (event: DragOverEvent) => {
+
+
     const { over, active } = event;
     if (!over) return;
     const activeId = active.id;
@@ -182,6 +184,8 @@ function Kanban() {
         return arrayMove(tasks, activeIndex, overIndex);
       });
     }
+
+
     //if is over a column
     const isOverAColumn = over.data.current?.type === 'Column';
 
@@ -197,26 +201,23 @@ function Kanban() {
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (!over) return;
-
     const activeColumnId = active.id;
     const overColumnId = over.id;
 
+      if (
+        active.data.current?.type == 'Task' &&
+        over.data.current?.type == 'Task'
+      ) {
+        const currentTaskPosition = getTaskPosition(active.id as number);
+        const newTaskPosition = getTaskPosition(over.id as number);
+        setTasks((oldState) => {
+          return arrayMove(oldState, currentTaskPosition, newTaskPosition);
+        });
+      }
     if (activeColumnId === overColumnId) return;
 
     const currentPosition = getColumnPosition(activeColumnId as string);
     const newPosition = getColumnPosition(overColumnId as string);
-
-    if (
-      active.data.current?.type == 'Task' &&
-      over.data.current?.type == 'Task'
-    ) {
-      const currentPosition = getTaskPosition(activeColumnId as number);
-      const newPosition = getTaskPosition(overColumnId as number);
-      setTasks((oldState) => {
-        return arrayMove(oldState, currentPosition, newPosition);
-      });
-      return;
-    }
 
     setColumns((oldState) => {
       return arrayMove(oldState, currentPosition, newPosition);
@@ -230,7 +231,7 @@ function Kanban() {
       },
     }),
   );
-
+ 
   return (
     <DndContext
       sensors={sensors}
@@ -250,9 +251,11 @@ function Kanban() {
                 style={{ minHeight: '250px' }}
               >
                 <ColumnContainer
-                  tasks={tasks.filter((task) => task.columnId === column.id)}
                   column={column}
                   sleepTime={sleepTime}
+                  tasks={tasks.filter(
+                    (task) => task.columnId === column.id,
+                  )}
                 />
               </Col>
             ))}
@@ -265,14 +268,18 @@ function Kanban() {
             <TaskContainer task={activeTask} />
           ) : (
             activeColumn && (
-              <ColumnContainer
-                column={activeColumn}
-                sleepTime={sleepTime}
-                tasks={tasks.filter(
-                  (task) => task.columnId === activeColumn.title,
-                )}
-              />
-            )
+              <Col
+                style={{ minHeight: '250px' }}
+              >
+                <ColumnContainer
+                  column={activeColumn}
+                  sleepTime={sleepTime}
+                  tasks={tasks.filter(
+                    (task) => task.columnId === activeColumn.id,
+                  )}
+                />
+              </Col>
+              )
           )}
         </DragOverlay>,
         document.body,
