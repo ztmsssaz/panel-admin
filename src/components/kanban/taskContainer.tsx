@@ -2,12 +2,14 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Task } from '../../types/types';
 import CardSection from '../ui/cards';
+import { useMemo } from 'react';
 
 type Props = {
-  task: Task;
+  task: Task ;
 };
 function TaskContainer(props: Props) {
   const { task } = props;
+  const memoizedTask = useMemo(() => task, [task.id]);
 
   const {
     attributes,
@@ -16,7 +18,7 @@ function TaskContainer(props: Props) {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: task.id, data: { type: 'Task', task } });
+  } = useSortable({ id: task.id, data: { type: 'Task', task: memoizedTask  } });
 
   const style = {
     transform: CSS.Transform.toString(transform),
