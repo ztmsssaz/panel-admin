@@ -4,11 +4,7 @@ import { Container } from 'react-bootstrap';
 import GlobalStyle from './theme/globalStyle';
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const [toggle, setToggle] = useState<boolean>(true);
-
-  function handleSidebar() {
-    setToggle(!toggle);
-  }
+  const [toggle, _setToggle] = useState<boolean>(true);
 
   return (
     <Container
@@ -21,7 +17,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           className="my-3 d-none d-md-block position-relative"
           style={{ transition: '0.3s', width: toggle ? '240px' : '50px' }}
         >
-          <Sidebar open={toggle} onClick={handleSidebar} />
+          <Sidebar open={toggle} />
         </div>
         <div className="vh-100 w-100 overflow-y-scroll hideScroll">
           <div

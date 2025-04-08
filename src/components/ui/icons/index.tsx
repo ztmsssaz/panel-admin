@@ -1,6 +1,4 @@
 import { colors } from '../../../layout/theme/colors';
-import { CommentIcon } from './svgs';
-
 export function Check({ size = 28 }: { size: number }) {
   return (
     <div
@@ -333,13 +331,7 @@ export function MessageIcon({
       }}
     >
       <div className="centered">
-        <svg
-          width={size}
-          height={size}
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width={size} height={size} viewBox="0 0 20 20" fill="none">
           <path
             d="M7.08366 15.8327H6.66699C3.33366 15.8327 1.66699 14.9993 1.66699 10.8327V6.66602C1.66699 3.33268 3.33366 1.66602 6.66699 1.66602H13.3337C16.667 1.66602 18.3337 3.33268 18.3337 6.66602V10.8327C18.3337 14.166 16.667 15.8327 13.3337 15.8327H12.917C12.6587 15.8327 12.4087 15.9577 12.2503 16.166L11.0003 17.8327C10.4503 18.566 9.55033 18.566 9.00033 17.8327L7.75033 16.166C7.61699 15.9827 7.30866 15.8327 7.08366 15.8327Z"
             stroke={color}
@@ -357,6 +349,51 @@ export function MessageIcon({
           />
           <path
             d="M5.83301 10.834H10.833"
+            stroke={color}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+export function AttachmentIcon({
+  size = 20,
+  classes,
+  color = '#161618',
+}: {
+  size: number;
+  classes?: string;
+  color?: string;
+}) {
+  return (
+    <div
+      className={`${classes} `}
+      style={{
+        width: size * 2 + 'px',
+        height: size * 2 + 'px',
+        position: 'relative',
+      }}
+    >
+      <div className="centered">
+        <svg
+          width={size}
+          height={size}
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.1664 9.83254L8.99138 11.0075C8.34138 11.6575 8.34138 12.7159 8.99138 13.3659C9.64138 14.0159 10.6997 14.0159 11.3497 13.3659L13.1998 11.5159C14.4998 10.2159 14.4998 8.10755 13.1998 6.79922C11.8998 5.49922 9.79139 5.49922 8.48306 6.79922L6.46641 8.81587C5.34974 9.93254 5.34974 11.7409 6.46641 12.8575"
+            stroke={color}
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M7.50033 18.3327H12.5003C16.667 18.3327 18.3337 16.666 18.3337 12.4993V7.49935C18.3337 3.33268 16.667 1.66602 12.5003 1.66602H7.50033C3.33366 1.66602 1.66699 3.33268 1.66699 7.49935V12.4993C1.66699 16.666 3.33366 18.3327 7.50033 18.3327Z"
             stroke={color}
             strokeWidth="1.5"
             strokeLinecap="round"

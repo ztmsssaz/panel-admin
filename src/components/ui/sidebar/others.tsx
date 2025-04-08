@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 import { ArrowDown } from '../icons/svgs';
 import BreakLine from '../breakLine';
 
-function Others() {
+function Others({ open }: { open: boolean }) {
   const navLinkClasses =
     'd-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2 ';
   return (
@@ -52,7 +52,9 @@ function Others() {
                 />
               </svg>
 
-              <span className={`ms-2 `}>Help & Center</span>
+              <span className={`ms-2 ${!open && 'opacity-0 '} transition-all`}>
+                Help & Center
+              </span>
             </div>
           </NavLink>
           <NavLink
@@ -85,7 +87,9 @@ function Others() {
                 />
               </svg>
 
-              <span className={`ms-2 `}>Settings</span>
+              <span className={`ms-2 ${!open && 'opacity-0 '} transition-all`}>
+                Settings
+              </span>
             </div>
           </NavLink>
         </Col>

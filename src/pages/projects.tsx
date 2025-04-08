@@ -1,4 +1,4 @@
-import { Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import TopNavbar from '../components/ui/topNavBar/navbar';
 import { Doc } from '../components/ui/icons';
 import MemberName from '../components/ui/memberName';
@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import MobileNavbar from '../components/ui/topNavBar/mobileNavbar';
 import BreakLine from '../components/ui/breakLine';
+import Filter from '../components/projects/filter';
 
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
@@ -48,7 +49,7 @@ function Projects() {
         <Row className="h-inherit">
           <Col xs={12} className="inherit px-0">
             <MobileNavbar road={'messages'} />
-            <TopNavbar road={'Projects'} />
+            <TopNavbar road={'Projects'} nextRoad="Marketing Campaign" />
             <BreakLine classes="d-none d-md-block" />
             <Container fluid className="py-4">
               <Row>
@@ -167,24 +168,76 @@ function Projects() {
                 </Col>
               </Row>
               <BreakLine />
-              <Row>
-                <Col xs={12}>
-                  <Tabs
-                    defaultActiveKey="Kanban"
-                    id="tab-1"
-                    className="bg-secondary-100 rounded-10 mb-4 p-1"
+              <Row className="align-items-center">
+                <Col xs={8} sm={6}>
+                  <ul
+                    className="nav nav-tabs p-1 bg-secondary-100 rounded"
+                    style={{ maxWidth: '265px', minWidth: '265px' }}
                   >
-                    <Tab eventKey="Kanban" title="Kanban">
-                      <Kanban />
-                    </Tab>
-                    <Tab eventKey="Table" title="Table">
-                      Tab content for table
-                    </Tab>
-                    <Tab eventKey="Calendar" title="Calendar">
-                      Tab content for calendar
-                    </Tab>
-                  </Tabs>
+                    <li className="nav-item">
+                      <button
+                        className="nav-link active"
+                        id="kanban-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#kanban"
+                        type="button"
+                        role="tab"
+                      >
+                        Kanban
+                      </button>
+                    </li>
+                    <li className="nav-item">
+                      <button
+                        className="nav-link"
+                        id="table-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#table"
+                        type="button"
+                        role="tab"
+                      >
+                        Table
+                      </button>
+                    </li>
+                    <li className="nav-item">
+                      <button
+                        className="nav-link"
+                        id="calendar-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#calendar"
+                        type="button"
+                        role="tab"
+                      >
+                        Calendar
+                      </button>
+                    </li>
+                  </ul>
                 </Col>
+                <Col xs={4} sm={6}>
+                  <Filter />
+                </Col>
+                <Row>
+                  <Col xs={12}>
+                    <div className="tab-content rounded-bottom mt-4">
+                      <div
+                        className="tab-pane fade show active"
+                        id="kanban"
+                        role="tabpanel"
+                      >
+                        <Kanban />
+                      </div>
+                      <div className="tab-pane fade" id="table" role="tabpanel">
+                        Tab content for table
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="calendar"
+                        role="tabpanel"
+                      >
+                        Tab content for calendar
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
               </Row>
             </Container>
           </Col>

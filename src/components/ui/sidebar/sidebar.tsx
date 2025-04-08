@@ -36,7 +36,7 @@ const Style = styled.div`
   }
 `;
 const Sidebar = memo(
-  ({ open = true, onClick }: { open: boolean; onClick: Function }) => {
+  ({ open = true }: { open: boolean; onClick?: Function }) => {
     const navlinkClasses: string =
       'd-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2 ';
 
@@ -55,7 +55,6 @@ const Sidebar = memo(
                   <h2 className="fs-16 fw-semibold ms-2">Protask</h2>
                 </div>
                 <div
-                  onClick={() => onClick()}
                   className={`closeOpen cursor-pointer ${!open && 'rotate-180'}`}
                 >
                   <svg
@@ -149,7 +148,11 @@ const Sidebar = memo(
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className={`ms-2 ${!open && 'd-none'}`}>Dashboard</span>
+                  <span
+                    className={`ms-2 ${!open && 'opacity-0 d-none'} transition-all`}
+                  >
+                    Dashboard
+                  </span>
                 </div>
               </NavLink>
               <NavLink
@@ -208,7 +211,11 @@ const Sidebar = memo(
                     />
                   </svg>
 
-                  <span className={`ms-2 ${!open && ' d-none'}`}>Projects</span>
+                  <span
+                    className={`ms-2 ${!open && ' opacity-0 d-none'} transition-all`}
+                  >
+                    Projects
+                  </span>
                 </div>
               </NavLink>
               <NavLink
@@ -249,7 +256,11 @@ const Sidebar = memo(
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className={`ms-2 ${!open && ' d-none'}`}>Messages</span>
+                  <span
+                    className={`ms-2 ${!open && ' opacity-0 d-none'} transition-all`}
+                  >
+                    Messages
+                  </span>
                 </div>
               </NavLink>
               <NavLink
@@ -342,7 +353,11 @@ const Sidebar = memo(
                     />
                   </svg>
 
-                  <span className={`ms-2 ${!open && ' d-none'}`}>Calendar</span>
+                  <span
+                    className={`ms-2 ${!open && ' opacity-0 d-none'} transition-all`}
+                  >
+                    Calendar
+                  </span>
                 </div>
               </NavLink>
               <NavLink
@@ -399,22 +414,29 @@ const Sidebar = memo(
                     />
                   </svg>
 
-                  <span className={`ms-2 ${!open && 'opacity-0 d-none'}`}>
+                  <span
+                    className={`ms-2 ${!open && 'opacity-0 d-none '} transition-all`}
+                  >
                     Analytics
                   </span>
                 </div>
               </NavLink>
             </Col>
 
-            <Col xs={12}>
-              <FavoritesButtons />
-            </Col>
+            {open && (
+              <Col
+                xs={12}
+                className={`${!open && 'opacity-0 d-none'} transition-all z-2 bg-secondary-100`}
+              >
+                <FavoritesButtons />
+              </Col>
+            )}
             <Col
               xs={12}
               className="position-absolute start-0 ps-0"
               style={{ bottom: '15px' }}
             >
-              <Others />
+              <Others open={true} />
             </Col>
           </Row>
         </Style>

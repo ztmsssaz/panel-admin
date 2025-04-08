@@ -2,8 +2,8 @@ function InviteMember() {
   return (
     <div
       style={{ minWidth: '32px', minHeight: '32px' }}
-      className="d-flex align-items-center justify-content-center border border-secoundery-100s rounded-10 
-      d-flex align-items-center cursor-pointer ms-md-2"
+      className="d-flex align-items-center justify-content-center border border-secoundery-100 rounded-10 
+      d-flex align-items-center cursor-pointer ms-md-2 p-1"
     >
       <svg
         width="18"

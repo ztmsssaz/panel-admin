@@ -38,7 +38,7 @@ function ColumnContainer(props: Props) {
 
   if (isDragging) {
     return (
-      <div ref={setNodeRef} style={style} className="opacity-50">
+      <div ref={setNodeRef} style={style} className="opacity-50  me-1">
         <div className="p-1">
           <TopColumn title={column.title} sleepTime={sleepTime} />
           <SortableContext items={taskIds}>
@@ -81,14 +81,19 @@ function ColumnContainer(props: Props) {
     <div
       ref={setNodeRef}
       style={style}
-      className={`bg-secondary-50 rounded-10`}
+      className={`bg-secondary-50 rounded-10  me-1`}
     >
       <div {...attributes} {...listeners} className="p-1">
         <TopColumn title={column.title} sleepTime={sleepTime} />
         <SortableContext items={taskIds}>
-          {tasks.map((item: Task) => (
-            <TaskContainer key={item.id} task={item} />
-          ))}
+          <div
+            className="hideScroll"
+            style={{ maxHeight: 'calc(100vh - 80px)', overflowY: 'auto' }}
+          >
+            {tasks.map((item: Task) => (
+              <TaskContainer key={item.id} task={item} />
+            ))}
+          </div>
         </SortableContext>
         <Button className="bg-transparent text-secondary-400 border-0 fs-14 fw-bold mt-2 d-flex align-items-center">
           <svg

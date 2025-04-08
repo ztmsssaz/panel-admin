@@ -382,7 +382,7 @@ export default function MobileSidebar({
                   className="position-absolute start-0"
                   style={{ bottom: '10px' }}
                 >
-                  <Others />
+                  <Others open={true} />
                 </Col>
               </Row>
             </Style>

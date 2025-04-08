@@ -1,7 +1,15 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import Notifications from './notifications';
 
-function TopNavbar({ road, classes = '' }: { road: string; classes?: string }) {
+function TopNavbar({
+  road,
+  nextRoad,
+  classes = '',
+}: {
+  road: string;
+  nextRoad?: string;
+  classes?: string;
+}) {
   return (
     <Container fluid className={`fs-18 py-md-3 pt-3 ${classes}`}>
       <Row>
@@ -29,7 +37,7 @@ function TopNavbar({ road, classes = '' }: { road: string; classes?: string }) {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="ps-2 fw-bold fs-18">Example Title</span>
+                  <span className="ps-2 fw-bold fs-18">{nextRoad}</span>
                 </>
               )}
             </div>

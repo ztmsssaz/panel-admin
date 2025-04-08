@@ -8,16 +8,16 @@ function CallAndOthers() {
     <div className="d-flex align-items-center">
       <VideoCameraIcon
         size={isMobile ? 16 : 20}
-        classes={`${isMobile ? mobileClasses : 'border border-secondary-100 border-2 rounded-12'} cursor-pointer me-1`}
+        classes={`${isMobile ? mobileClasses : 'rounded-12'} border border-secondary-100 cursor-pointer me-1`}
       />
       <PhoneIcon
         size={isMobile ? 16 : 20}
-        classes={`${isMobile ? mobileClasses : 'border border-secondary-100 border-2 rounded-12'} cursor-pointer me-1`}
+        classes={`${isMobile ? mobileClasses : 'rounded-12'} border border-secondary-100 cursor-pointer me-1`}
       />
       <VerticalDots
         color={colors.secondary_900}
         size={isMobile ? 16 : 20}
-        classes={`${isMobile ? mobileClasses : 'border border-secondary-100 border-2 rounded-12'} cursor-pointer me-1`}
+        classes={`${isMobile ? mobileClasses : 'rounded-12'} border border-secondary-100 cursor-pointer me-1`}
       />
     </div>
   );

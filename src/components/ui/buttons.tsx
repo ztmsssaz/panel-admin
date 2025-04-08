@@ -19,7 +19,7 @@ export function InfoButton({
       type={type}
       style={{
         outline: `solid 1px ${colors.info_600}`,
-        maxHeight: '40px',
+        minWidth: '40px',
         minHeight: '40px',
       }}
       onClick={onClick}

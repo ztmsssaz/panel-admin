@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Style from './style';
 import { InfoButton } from '../ui/buttons';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { ArrowLeftIcon, SendIcon } from '../ui/icons/svgs';
 import Skeleton from 'react-loading-skeleton';
 // import { useSearchParams } from 'react-router';
 import CallAndOthers from './call&others';
 import { NavLink } from 'react-router';
+import { AttachmentIcon } from '../ui/icons';
 
 const Chat = ({}) => {
   // const [searchParams] = useSearchParams();
@@ -101,7 +102,7 @@ const Chat = ({}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 1000);
   }, []);
 
   return (
@@ -138,7 +139,7 @@ const Chat = ({}) => {
       </header>
       <div className="chat border-start border-secondary-200 py-3">
         <div className="chat-body ">
-          <div className="message-container w-100 overflow-scroll hideScroll">
+          <div className="message-container w-100 overflow-scroll">
             <Container fluid="lg">
               {messages.map((messageContent, index) => {
                 return (
@@ -230,33 +231,10 @@ const Chat = ({}) => {
               }}
             />
             <div className="chatButtons d-flex align-items-stretch gap-2">
-              <div
-                className="border border-secondary-200 rounded-10 d-flex align-items-center justify-content-center"
-                style={{ width: '40px', height: '40px' }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.1664 9.83254L8.99138 11.0075C8.34138 11.6575 8.34138 12.7159 8.99138 13.3659C9.64138 14.0159 10.6997 14.0159 11.3497 13.3659L13.1998 11.5159C14.4998 10.2159 14.4998 8.10755 13.1998 6.79922C11.8998 5.49922 9.79139 5.49922 8.48306 6.79922L6.46641 8.81587C5.34974 9.93254 5.34974 11.7409 6.46641 12.8575"
-                    stroke="#161618"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7.50033 18.3327H12.5003C16.667 18.3327 18.3337 16.666 18.3337 12.4993V7.49935C18.3337 3.33268 16.667 1.66602 12.5003 1.66602H7.50033C3.33366 1.66602 1.66699 3.33268 1.66699 7.49935V12.4993C1.66699 16.666 3.33366 18.3327 7.50033 18.3327Z"
-                    stroke="#161618"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+              <AttachmentIcon
+                classes="border border-secondary-200 border-1 rounded-10 cursor-pointer"
+                size={20}
+              />
 
               <InfoButton
                 classes="d-flex align-items-center justify-content-center px-3"

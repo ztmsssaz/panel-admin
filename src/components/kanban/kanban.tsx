@@ -1,6 +1,7 @@
 import {
   DndContext,
   DragEndEvent,
+  DragOverEvent,
   DragOverlay,
   DragStartEvent,
   PointerSensor,
@@ -144,6 +145,9 @@ function Kanban() {
   const getColumnPosition = (columnId: string) => {
     return columns.findIndex((column) => column.id === columnId);
   };
+  const getTaskPosition = (taskId: number) => {
+    return tasks.findIndex((task) => task.id === taskId);
+  };
 
   const handleDragStart = (event: DragStartEvent) => {
     setActiveColumn(null);
@@ -157,7 +161,7 @@ function Kanban() {
     }
   };
 
-  const handleOverDrag = (event: any) => {
+  const handleOverDrag = (event: DragOverEvent) => {
     const { over, active } = event;
     if (!over) return;
     const activeId = active.id;
@@ -165,6 +169,9 @@ function Kanban() {
     if (activeId === overId) return;
     const isActiveTask = active.data.current?.type === 'Task';
     const isOverTask = over.data.current?.type === 'Task';
+
+    if (!isActiveTask) return;
+
     if (isActiveTask && isOverTask) {
       setTasks((tasks) => {
         const activeIndex = tasks.findIndex((t) => t.id === activeId);
@@ -173,6 +180,16 @@ function Kanban() {
           tasks[activeIndex].columnId = tasks[overIndex].columnId;
         }
         return arrayMove(tasks, activeIndex, overIndex);
+      });
+    }
+    //if is over a column
+    const isOverAColumn = over.data.current?.type === 'Column';
+
+    if (isActiveTask && isOverAColumn) {
+      setTasks((tasks) => {
+        const activeIndex = tasks.findIndex((t) => t.id === activeId);
+        tasks[activeIndex].columnId = overId as string;
+        return arrayMove(tasks, activeIndex, activeIndex);
       });
     }
   };
@@ -189,7 +206,18 @@ function Kanban() {
     const currentPosition = getColumnPosition(activeColumnId as string);
     const newPosition = getColumnPosition(overColumnId as string);
 
-    console.log(currentPosition, newPosition);
+    if (
+      active.data.current?.type == 'Task' &&
+      over.data.current?.type == 'Task'
+    ) {
+      const currentPosition = getTaskPosition(activeColumnId as number);
+      const newPosition = getTaskPosition(overColumnId as number);
+      setTasks((oldState) => {
+        return arrayMove(oldState, currentPosition, newPosition);
+      });
+      return;
+    }
+
     setColumns((oldState) => {
       return arrayMove(oldState, currentPosition, newPosition);
     });
@@ -211,7 +239,7 @@ function Kanban() {
       onDragStart={handleDragStart}
     >
       <Container fluid>
-        <Row className="flex-nowrap gap-1 overflow-x-scroll">
+        <Row className="flex-nowrap overflow-x-scroll">
           <SortableContext items={columnsId}>
             {columns.map((column) => (
               <Col

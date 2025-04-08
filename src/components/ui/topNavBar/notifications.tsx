@@ -45,13 +45,13 @@ function Notifications({ classes }: { classes?: string }) {
         )}
       </div>
       <div className="d-flex">
-        <RingIcon
-          size={isMobile ? 16 : 20}
-          classes={`${isMobile ? mobileClasses : 'border border-secondary-200 border-2 rounded-12'} cursor-pointer me-1`}
-        />
         <MessageIcon
           size={isMobile ? 16 : 20}
-          classes={`${isMobile ? mobileClasses : 'border border-secondary-200 border-2 rounded-12'} cursor-pointer me-1`}
+          classes={`${isMobile ? mobileClasses : ' rounded-12'} border border-secondary-200 border-1 cursor-pointer me-1`}
+        />
+        <RingIcon
+          size={isMobile ? 16 : 20}
+          classes={`${isMobile ? mobileClasses : ' rounded-12'} border border-secondary-200 border-1 cursor-pointer me-1`}
         />
       </div>
     </div>

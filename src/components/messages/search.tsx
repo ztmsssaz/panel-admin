@@ -14,7 +14,7 @@ const Style = styled.div`
 `;
 function Search() {
   return (
-    <Style className="py-3 pt-md-4 pb-md-1">
+    <Style className="py-3 pt-md-3 pb-md-1">
       <Container fluid className="px-0">
         <Row>
           <Col xs={12}>

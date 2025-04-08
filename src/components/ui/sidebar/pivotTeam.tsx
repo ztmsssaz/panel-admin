@@ -10,9 +10,11 @@ function PivotTeamDropDown({ open = true }: { open?: boolean }) {
                   ${open ? ' pr-16' : 'p-1'}`}
         as="div"
       >
-        <Logo size={28} classes="ml-5" />
+        <div>
+          <Logo size={28} classes="d-block ml-5" />
+        </div>
         <div
-          className={`${!open && 'opacity-0'} d-flex align-items-center justify-content-between`}
+          className={`${!open && 'opacity-0'} d-flex align-items-center justify-content-between transition-all`}
         >
           <span className="fs-14 fw-bold ml-10">Pivot Team</span>
           <div

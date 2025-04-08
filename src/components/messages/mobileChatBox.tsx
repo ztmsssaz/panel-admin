@@ -15,7 +15,44 @@ const MobileChatBox = ({}) => {
   const params = useParams();
   const [loading, setLoading] = useState<boolean>(true);
   const lastMessageRef = useRef<any>(null); // مرجع آخرین پیام
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      text: 'Hi! Just a reminder that the final approval for the deliverables is due next Monday. Could you confirm if everything is on track?',
+      sender: 'other',
+      time: '10:01 AM',
+      profile: '../../assets/images/jack.png',
+    },
+    {
+      text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
+      sender: 'me',
+      time: '10:04 AM',
+      profile: '../../assets/images/jack.png',
+    },
+    {
+      text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
+      sender: 'other',
+      time: '10:04 AM',
+      profile: '../../assets/images/jack.png',
+    },
+    {
+      text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
+      sender: 'me',
+      time: '10:04 AM',
+      profile: '../../assets/images/jack.png',
+    },
+    {
+      text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
+      sender: 'other',
+      time: '10:04 AM',
+      profile: '../../assets/images/jack.png',
+    },
+    {
+      text: 'Hi Sophia, thanks for the reminder! Yes, we’re on track to finalize everything by Friday. I’ll send you a detailed status update by end of the day tomorrow',
+      sender: 'me',
+      time: '10:04 AM',
+      profile: '../../assets/images/jack.png',
+    },
+  ]);
 
   const sendMessage = async () => {
     // document.getElementById('textAreaInput').focus()

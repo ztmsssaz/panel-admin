@@ -12,7 +12,7 @@ function Messages() {
   useEffect(() => {
     setTimeout(() => {
       setMessages(true);
-    }, 4000);
+    }, 1000);
   }, []);
 
   return (
@@ -20,7 +20,11 @@ function Messages() {
       <Row className="h-inherit">
         <Col xs={12} className="px-0">
           <MobileNavbar road={'messages'} />
-          <TopNavbar road={'messages'} classes="d-none d-md-block" />
+          <TopNavbar
+            road={'messages'}
+            nextRoad=""
+            classes="d-none d-md-block"
+          />
           <Container fluid className="h-inherit">
             <Row className="border-top border-secondary-200 h-inherit">
               <Col xs={12} md={5} lg={4} xl={3}>

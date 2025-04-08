@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { Button, Dropdown } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 
 const DropdownMenu = () => {
-  const [show, setShow] = useState(false);
+  const [_show, _setShow] = useState(false);
 
-  const handleToggle = () => {
-    setShow(!show);
-
-    console.log(!show);
-  };
+  // const handleToggle = () => {
+  //   setShow(!show);
+  // };
 
   return (
     <Dropdown>

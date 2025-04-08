@@ -164,6 +164,19 @@ const GlobalStyle = createGlobalStyle`
   .outline-3-white{
     outline: solid 3px #fff;
   }
+  ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
 `;
 
 export default GlobalStyle;
