@@ -8,25 +8,13 @@ import { memo, useEffect, useState } from 'react';
 import { Task } from '../../types/types';
 
 const CardSection = memo(
-  ({ data }: { data: Task }) => {
-    const [state, setState] = useState(false);
-
-    useEffect(() => {
-      let isMounted = true;
-      const timeout = setTimeout(() => {
-        if (isMounted) setState(true);
-      }, 1000);
-      return () => {
-        isMounted = false;
-        clearTimeout(timeout);
-      };
-    }, []);
-
+  ({ data, firstRender }: { data: Task; firstRender: boolean }) => {
+ 
     return (
       <Card className="rounded-10 mb-2 w-100 mx-auto z-4">
         <CardBody>
           <div className="d-flex justify-content-between align-items-center fs-12">
-            <LevelLabel level={state ? data.level : 0} />
+            <LevelLabel level={!firstRender ? data.level : 0} />
             <div className="cursor-pointer">
               <svg
                 width="16"
@@ -51,10 +39,10 @@ const CardSection = memo(
             </div>
           </div>
           <CardTitle className="text-secondary-700 fs-14 fw-semibold mt-3 mb-2">
-            {state || <Skeleton count={1} height={16} />}
+            {!firstRender || <Skeleton count={1} height={16} />}
           </CardTitle>
           <div className="d-flex align-items-center">
-            {state ? (
+            {!firstRender ? (
               <div className="d-flex align-items-center me-xl-4 me-md-2 me-1">
                 <CalendarIcon />
                 <time
@@ -71,7 +59,7 @@ const CardSection = memo(
                 containerClassName="d-flex align-items-center"
               />
             )}
-            {state ? (
+            {!firstRender ? (
               <div className="d-flex align-items-center">
                 <CommentIcon />
                 <span className="fs-12 fw-bold text-secondary-400 ms-1">
@@ -88,7 +76,7 @@ const CardSection = memo(
           </div>
           <div className="border-bottom border-secondary-200 my-3"></div>
           <div className="d-flex align-items-center justify-content-between">
-            {state ? (
+            {!firstRender ? (
               <div className="d-flex align-items-center">
                 <div className="rounded-circle border border-3 border-white z-3">
                   <img width={25} src="../../assets/images/json.png" />
@@ -116,7 +104,7 @@ const CardSection = memo(
               />
             )}
             <div className="d-flex align-items-center">
-              {state ? (
+              {!firstRender ? (
                 <CircleProgress width={22} value={data.progress} />
               ) : (
                 <Skeleton
@@ -128,7 +116,7 @@ const CardSection = memo(
                 />
               )}
               <span className="fs-12 fw-bold ms-1">
-                {state ? (
+                {!firstRender ? (
                   `${data.progress}%`
                 ) : (
                   <>

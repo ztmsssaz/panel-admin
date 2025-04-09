@@ -85,9 +85,7 @@ const Style = styled.div`
       }
     }
   }
-  .light-shadow {
-    box-shadow: 0px 1px 2px 0px rgba(82, 88, 102, 0.06);
-  }
+
   @media (min-width: 768px) {
     .chat {
       margin-right: auto;

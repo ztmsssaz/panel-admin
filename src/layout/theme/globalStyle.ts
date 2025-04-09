@@ -106,6 +106,10 @@ const GlobalStyle = createGlobalStyle`
     `,
     )
     .join('\n')}
+    /* shadow */
+  .light-shadow {
+    box-shadow: 0px 1px 2px 0px rgba(82, 88, 102, 0.06);
+  }
 
   /* Other Styles */
   .dropdown-toggle::after { content: none; }

@@ -85,7 +85,7 @@ const MobileChatBox = ({}) => {
 
   return (
     <Style>
-      <header className="bg-white position-fixed w-100 top-0 left-0 z-2">
+      <header className="bg-white position-fixed w-100 top-0 start-0 z-2">
         <MobileNavbar road={'Messages'} />
         <div
           className="d-flex align-items-center justify-content-between border-start border-secondary-200
