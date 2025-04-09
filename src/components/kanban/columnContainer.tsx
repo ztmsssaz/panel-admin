@@ -32,7 +32,7 @@ function ColumnContainer(props: Props) {
     isDragging,
   } = useSortable({ id: column.id, data: { type: 'Column', column } });
 
-  const style = {
+  const style: any = {
     transform: CSS.Transform.toString(transform),
     transition: transition,
     boxShadow: isDragging ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
@@ -45,11 +45,14 @@ function ColumnContainer(props: Props) {
         style={style}
         {...attributes}
         {...listeners}
-        className="opacity-25 me-1"
+        className={`bg-secondary-50 rounded-10 opacity-50 w-100 h-100`}
       >
         <div className="p-1">
           <TopColumn title={column.title} firstRender={firstRender} />
-          <SortableContext items={taskIds}>
+          <div
+            className="hideScroll"
+            style={{ maxHeight: 'calc(100vh - 80px)', overflowY: 'auto' }}
+          >
             {tasks.map((item: Task) => (
               <TaskContainer
                 key={item.id}
@@ -57,7 +60,7 @@ function ColumnContainer(props: Props) {
                 firstRender={firstRender}
               />
             ))}
-          </SortableContext>
+          </div>
 
           <Button className="bg-transparent text-secondary-400 border-0 fs-14 fw-bold mt-2 d-flex align-items-center">
             <svg
@@ -95,11 +98,14 @@ function ColumnContainer(props: Props) {
       style={style}
       {...attributes}
       {...listeners}
-      className={`bg-secondary-50 rounded-10 me-1`}
+      className={`bg-secondary-50 rounded-10 w-100`}
     >
       <div className="p-1">
         <TopColumn title={column.title} firstRender={firstRender} />
-        <SortableContext items={taskIds}>
+        <SortableContext
+          strategy={horizontalListSortingStrategy}
+          items={taskIds}
+        >
           <div
             className="hideScroll"
             style={{ maxHeight: 'calc(100vh - 80px)', overflowY: 'auto' }}

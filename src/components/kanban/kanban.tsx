@@ -240,19 +240,17 @@ function Kanban() {
       <Container fluid>
         <Row className="flex-nowrap overflow-x-scroll">
           <SortableContext items={columnsId}>
-            {columns.map((column) => (
-              <Col
-                key={column.id}
-                xs={7}
-                md={3}
-                className="p-0"
-                style={{ minHeight: '250px' }}
-              >
-                <ColumnContainer
-                  firstRender={firstRender}
-                  column={column}
-                  tasks={tasks.filter((task) => task.columnId === column.id)}
-                />
+            {columns.map((column, index) => (
+              <Col key={column.id} xs={7} md={3} className="p-0">
+                <div
+                  className={`${index === 0 || index !== columns.length ? 'mx-1' : ''}`}
+                >
+                  <ColumnContainer
+                    firstRender={firstRender}
+                    column={column}
+                    tasks={tasks.filter((task) => task.columnId === column.id)}
+                  />
+                </div>
               </Col>
             ))}
           </SortableContext>
@@ -264,7 +262,7 @@ function Kanban() {
             <TaskContainer task={activeTask} firstRender={firstRender} />
           ) : (
             activeColumn && (
-              <Col className="p-0" style={{ minHeight: '250px' }}>
+              <Col className="p-0">
                 <ColumnContainer
                   firstRender={firstRender}
                   column={activeColumn}
