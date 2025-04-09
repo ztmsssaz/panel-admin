@@ -50,11 +50,11 @@ function Chatroom({ chatList }: { chatList: boolean }) {
               minHeight: 'calc(100vh - 230px)',
             }}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((id) => (
               <ChatItem
-                key={item}
+                key={id}
                 data={chatList}
-                id={1}
+                id={id}
                 active={activeChat}
                 onActive={activateChat}
               />
