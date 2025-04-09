@@ -26,6 +26,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
               boxShadow: '0px 1px 2px 0px rgba(82, 88, 102, 0.06)',
             }}
           >
+            
             {children}
           </div>
         </div>

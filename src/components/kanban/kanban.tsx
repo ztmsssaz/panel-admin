@@ -134,12 +134,12 @@ function Kanban() {
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
   const [activeTask, setActiveTask] = useState<Task | null>(null);
 
-  const [sleepTime, setSleepTime] = useState<boolean>(true);
+  const [firstRender, setFirstRender] = useState<boolean>(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setSleepTime(false);
-    }, 3000);
+      setFirstRender(false);
+    }, 1000);
   }, []);
 
   const getColumnPosition = (columnId: string) => {
@@ -183,6 +183,7 @@ function Kanban() {
         }
         return arrayMove(tasks, activeIndex, overIndex);
       });
+      console.log('success' , isActiveTask)
     }
 
 
@@ -251,8 +252,8 @@ function Kanban() {
                 style={{ minHeight: '250px' }}
               >
                 <ColumnContainer
+                firstRender={firstRender}
                   column={column}
-                  sleepTime={sleepTime}
                   tasks={tasks.filter(
                     (task) => task.columnId === column.id,
                   )}
@@ -265,15 +266,15 @@ function Kanban() {
       {createPortal(
         <DragOverlay>
           {activeTask ? (
-            <TaskContainer task={activeTask} />
+            <TaskContainer task={activeTask} firstRender={firstRender}/>
           ) : (
             activeColumn && (
               <Col
                 style={{ minHeight: '250px' }}
               >
                 <ColumnContainer
+                firstRender={firstRender}
                   column={activeColumn}
-                  sleepTime={sleepTime}
                   tasks={tasks.filter(
                     (task) => task.columnId === activeColumn.id,
                   )}

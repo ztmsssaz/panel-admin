@@ -4,11 +4,7 @@ import { Task } from '../../types/types';
 import CardSection from '../ui/cards';
 import { useMemo } from 'react';
 
-type Props = {
-  task: Task ;
-};
-function TaskContainer(props: Props) {
-  const { task } = props;
+function TaskContainer({task,firstRender}: {task:Task,firstRender:boolean}) {
   const memoizedTask = useMemo(() => task, [task.id]);
 
   const {
@@ -35,14 +31,14 @@ function TaskContainer(props: Props) {
         {...attributes}
         {...listeners}
       >
-        <CardSection data={task} />
+        <CardSection data={task} firstRender={firstRender}/>
       </div>
     );
   }
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <CardSection data={task} />
+      <CardSection data={task} firstRender={firstRender}/>
     </div>
   );
 }

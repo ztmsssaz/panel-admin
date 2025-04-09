@@ -2,11 +2,11 @@ import Skeleton from 'react-loading-skeleton';
 
 function TopColumn({
   title,
-  sleepTime,
+  firstRender,
   ...others
 }: {
   title: string;
-  sleepTime: boolean;
+  firstRender: boolean;
 }) {
   function whatColorIs(text: string) {
     switch (text) {
@@ -41,7 +41,7 @@ function TopColumn({
         style={{ width: '10px', height: '10px' }}
       ></span>
       <h5 className="text-center fw-bold fs-16 py-3 px-2">{title}</h5>
-      {!sleepTime ? (
+      {!firstRender ? (
         NumberBadge(4)
       ) : (
         <Skeleton
