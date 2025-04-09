@@ -187,7 +187,6 @@ function Kanban() {
 
     // Drag over a column
     const isOverAColumn = over.data.current?.type === 'Column';
-    const activeColumn = active.data.current?.type === 'Column';
 
     if (isActiveTask && isOverAColumn) {
       setTasks((tasks) => {

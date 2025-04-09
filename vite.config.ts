@@ -7,13 +7,4 @@ import react from '@vitejs/plugin-react';
 // })
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: [
-      {
-        find: /^@atlaskit\/pragmatic-drag-and-drop\/(.*)/,
-        replacement:
-          'node_modules/@atlaskit/pragmatic-drag-and-drop/dist/esm/entry-point/$1.js',
-      },
-    ],
-  },
 });
