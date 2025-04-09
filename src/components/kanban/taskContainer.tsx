@@ -1,8 +1,8 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { useMemo } from 'react';
 import { Task } from '../../types/types';
 import CardSection from '../ui/cards';
-import { useMemo } from 'react';
 
 function TaskContainer({task,firstRender}: {task:Task,firstRender:boolean}) {
   const memoizedTask = useMemo(() => task, [task.id]);

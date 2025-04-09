@@ -1,9 +1,7 @@
 import { horizontalListSortingStrategy, SortableContext, useSortable } from '@dnd-kit/sortable';
 import { Button } from 'react-bootstrap';
-import TopColumn from './topColumn';
-
 import { Column, Task } from '../../types/types';
-// import { useMemo } from 'react';
+import TopColumn from './topColumn';
 import { CSS } from '@dnd-kit/utilities';
 import { useMemo } from 'react';
 import TaskContainer from './taskContainer';

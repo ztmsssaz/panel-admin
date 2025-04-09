@@ -1,11 +1,10 @@
+import { memo } from 'react';
 import { Card, CardBody, CardTitle } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
+import { Task } from '../../types/types';
 import CircleProgress from './circle-progress';
 import { CalendarIcon, CommentIcon } from './icons/svgs';
 import LevelLabel from './levelLabel';
-
-import { memo } from 'react';
-import { Task } from '../../types/types';
 
 const CardSection = memo(
   ({ data, firstRender }: { data: Task; firstRender: boolean }) => {

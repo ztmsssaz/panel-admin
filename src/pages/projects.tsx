@@ -1,16 +1,16 @@
+import { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import TopNavbar from '../components/ui/topNavBar/navbar';
+import Skeleton from 'react-loading-skeleton';
+import styled from 'styled-components';
+import InviteMember from '../components/inviteMember';
+import Kanban from '../components/kanban/kanban';
+import Filter from '../components/projects/filter';
+import BreakLine from '../components/ui/breakLine';
 import { Doc } from '../components/ui/icons';
 import MemberName from '../components/ui/memberName';
-import InviteMember from '../components/inviteMember';
-import styled from 'styled-components';
-import { colors } from '../layout/theme/colors';
-import Kanban from '../components/kanban/kanban';
-import { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
 import MobileNavbar from '../components/ui/topNavBar/mobileNavbar';
-import BreakLine from '../components/ui/breakLine';
-import Filter from '../components/projects/filter';
+import TopNavbar from '../components/ui/topNavBar/navbar';
+import { colors } from '../layout/theme/colors';
 
 const Style = styled.div`
   .nav-tabs .nav-item .nav-link {
