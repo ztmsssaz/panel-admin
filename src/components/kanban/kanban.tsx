@@ -123,9 +123,7 @@ function Kanban() {
     },
   ];
   const [tasks, setTasks] = useState<Task[]>(columnsData);
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
+
   const [columns, setColumns] = useState([
     { id: 'ToDo', title: 'To Do' },
     { id: 'InProgress', title: 'In Progress' },
@@ -266,7 +264,7 @@ function Kanban() {
             <TaskContainer task={activeTask} firstRender={firstRender} />
           ) : (
             activeColumn && (
-              <Col style={{ minHeight: '250px' }}>
+              <Col className="p-0" style={{ minHeight: '250px' }}>
                 <ColumnContainer
                   firstRender={firstRender}
                   column={activeColumn}

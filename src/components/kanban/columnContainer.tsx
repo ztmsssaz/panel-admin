@@ -1,4 +1,8 @@
-import { horizontalListSortingStrategy, SortableContext, useSortable } from '@dnd-kit/sortable';
+import {
+  horizontalListSortingStrategy,
+  SortableContext,
+  useSortable,
+} from '@dnd-kit/sortable';
 import { Button } from 'react-bootstrap';
 import { Column, Task } from '../../types/types';
 import TopColumn from './topColumn';
@@ -13,7 +17,7 @@ interface Props {
 }
 
 function ColumnContainer(props: Props) {
-  const { column, tasks,firstRender } = props;
+  const { column, tasks, firstRender } = props;
 
   const taskIds = useMemo(() => {
     return tasks.map((task) => task.id);
@@ -36,12 +40,22 @@ function ColumnContainer(props: Props) {
 
   if (isDragging) {
     return (
-      <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="opacity-25 me-1">
+      <div
+        ref={setNodeRef}
+        style={style}
+        {...attributes}
+        {...listeners}
+        className="opacity-25 me-1"
+      >
         <div className="p-1">
           <TopColumn title={column.title} firstRender={firstRender} />
-          <SortableContext items={taskIds} strategy={horizontalListSortingStrategy}> 
+          <SortableContext items={taskIds}>
             {tasks.map((item: Task) => (
-              <TaskContainer key={item.id} task={item}  firstRender={firstRender}/>
+              <TaskContainer
+                key={item.id}
+                task={item}
+                firstRender={firstRender}
+              />
             ))}
           </SortableContext>
 
@@ -79,7 +93,8 @@ function ColumnContainer(props: Props) {
     <div
       ref={setNodeRef}
       style={style}
-      {...attributes} {...listeners}
+      {...attributes}
+      {...listeners}
       className={`bg-secondary-50 rounded-10 me-1`}
     >
       <div className="p-1">
@@ -90,7 +105,11 @@ function ColumnContainer(props: Props) {
             style={{ maxHeight: 'calc(100vh - 80px)', overflowY: 'auto' }}
           >
             {tasks.map((item: Task) => (
-              <TaskContainer key={item.id} task={item} firstRender={firstRender} />
+              <TaskContainer
+                key={item.id}
+                task={item}
+                firstRender={firstRender}
+              />
             ))}
           </div>
         </SortableContext>
