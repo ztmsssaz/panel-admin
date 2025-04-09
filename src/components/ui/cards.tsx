@@ -4,7 +4,7 @@ import CircleProgress from './circle-progress';
 import { CalendarIcon, CommentIcon } from './icons/svgs';
 import LevelLabel from './levelLabel';
 
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import { Task } from '../../types/types';
 
 const CardSection = memo(
