@@ -4,7 +4,13 @@ import { useMemo } from 'react';
 import { Task } from '../../types/types';
 import CardSection from '../ui/cards';
 
-function TaskContainer({task,firstRender}: {task:Task,firstRender:boolean}) {
+function TaskContainer({
+  task,
+  firstRender,
+}: {
+  task: Task;
+  firstRender: boolean;
+}) {
   const memoizedTask = useMemo(() => task, [task.id]);
 
   const {
@@ -14,7 +20,7 @@ function TaskContainer({task,firstRender}: {task:Task,firstRender:boolean}) {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: task.id, data: { type: 'Task', task: memoizedTask  } });
+  } = useSortable({ id: task.id, data: { type: 'Task', task: memoizedTask } });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -31,14 +37,14 @@ function TaskContainer({task,firstRender}: {task:Task,firstRender:boolean}) {
         {...attributes}
         {...listeners}
       >
-        <CardSection data={task} firstRender={firstRender}/>
+        <CardSection data={task} firstRender={firstRender} />
       </div>
     );
   }
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <CardSection data={task} firstRender={firstRender}/>
+      <CardSection data={task} firstRender={firstRender} />
     </div>
   );
 }

@@ -176,7 +176,7 @@ function Projects() {
                     onSelect={(k) => setActiveTab(k)}
                     defaultActiveKey="kanban"
                     id="kanban-tabs"
-                    className="bg-secondary-100 p-1 rounded"
+                    className="bg-secondary-100 p-1 rounded border-0"
                     style={{ maxWidth: 'max-content', minWidth: 'max-content' }}
                   >
                     <Tab eventKey="kanban" title="Kanban" />
@@ -191,11 +191,22 @@ function Projects() {
 
               <Row className="mt-4">
                 <Col xs={12}>
-                  {activeTab === 'kanban' && <Kanban />}
-                  {activeTab === 'table' && <div>Tab content for table</div>}
-                  {activeTab === 'calendar' && (
-                    <div className="mt-4">Tab content for calendar</div>
-                  )}
+                  <div
+                    className={`${activeTab === 'kanban' ? 'd-block' : 'd-none'}`}
+                  >
+                    <Kanban />
+                  </div>
+
+                  <div
+                    className={`${activeTab === 'table' ? 'd-block' : 'd-none'}`}
+                  >
+                    Tab content for table
+                  </div>
+                  <div
+                    className={`${activeTab === 'calendar' ? 'd-block' : 'd-none'}`}
+                  >
+                    Tab content for calendar
+                  </div>
                 </Col>
               </Row>
             </Container>

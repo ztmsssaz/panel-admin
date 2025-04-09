@@ -214,7 +214,8 @@ function Kanban() {
       });
     }
 
-    if (activeColumnId === overColumnId) return;
+    if (activeColumnId === overColumnId && active.data.current?.type !== 'Task')
+      return;
     const currentPosition = getColumnPosition(activeColumnId as string);
     const newPosition = getColumnPosition(overColumnId as string);
 
