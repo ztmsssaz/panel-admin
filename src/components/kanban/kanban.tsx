@@ -123,7 +123,9 @@ function Kanban() {
     },
   ];
   const [tasks, setTasks] = useState<Task[]>(columnsData);
-
+  useEffect(() => {
+    console.log(tasks);
+  }, [tasks]);
   const [columns, setColumns] = useState([
     { id: 'ToDo', title: 'To Do' },
     { id: 'InProgress', title: 'In Progress' },
@@ -148,10 +150,10 @@ function Kanban() {
   const getTaskPosition = (taskId: number) => {
     return tasks.findIndex((task) => task.id === taskId);
   };
-
   const handleDragStart = (event: DragStartEvent) => {
     setActiveColumn(null);
     setActiveTask(null);
+
     const { active } = event;
     if (active.data.current?.type == 'Column') {
       setActiveColumn(active.data.current.column);
@@ -160,35 +162,32 @@ function Kanban() {
       setActiveTask(active.data.current.task);
     }
   };
-
+  //on over Dragging
   const handleOverDrag = (event: DragOverEvent) => {
-
-
     const { over, active } = event;
     if (!over) return;
-    const activeId = active.id;
-    const overId = over.id;
+    const activeId: number | string = active?.id;
+    const overId: number | string = over?.id;
     if (activeId === overId) return;
     const isActiveTask = active.data.current?.type === 'Task';
     const isOverTask = over.data.current?.type === 'Task';
 
     if (!isActiveTask) return;
-
+    //  over a Task
     if (isActiveTask && isOverTask) {
+      const activeIndex = getTaskPosition(activeId as number);
+      const overIndex = getTaskPosition(overId as number);
       setTasks((tasks) => {
-        const activeIndex = tasks.findIndex((t) => t.id === activeId);
-        const overIndex = tasks.findIndex((t) => t.id === overId);
         if (tasks[activeIndex].columnId !== tasks[overIndex].columnId) {
           tasks[activeIndex].columnId = tasks[overIndex].columnId;
         }
         return arrayMove(tasks, activeIndex, overIndex);
       });
-      console.log('success' , isActiveTask)
     }
 
-
-    //if is over a column
+    // Drag over a column
     const isOverAColumn = over.data.current?.type === 'Column';
+    const activeColumn = active.data.current?.type === 'Column';
 
     if (isActiveTask && isOverAColumn) {
       setTasks((tasks) => {
@@ -198,25 +197,25 @@ function Kanban() {
       });
     }
   };
-
+  //on End Dragging
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (!over) return;
     const activeColumnId = active.id;
     const overColumnId = over.id;
 
-      if (
-        active.data.current?.type == 'Task' &&
-        over.data.current?.type == 'Task'
-      ) {
-        const currentTaskPosition = getTaskPosition(active.id as number);
-        const newTaskPosition = getTaskPosition(over.id as number);
-        setTasks((oldState) => {
-          return arrayMove(oldState, currentTaskPosition, newTaskPosition);
-        });
-      }
-    if (activeColumnId === overColumnId) return;
+    if (
+      active.data.current?.type == 'Task' &&
+      over.data.current?.type == 'Task'
+    ) {
+      const currentTaskPosition = getTaskPosition(active.id as number);
+      const newTaskPosition = getTaskPosition(over.id as number);
+      setTasks((oldState) => {
+        return arrayMove(oldState, currentTaskPosition, newTaskPosition);
+      });
+    }
 
+    if (activeColumnId === overColumnId) return;
     const currentPosition = getColumnPosition(activeColumnId as string);
     const newPosition = getColumnPosition(overColumnId as string);
 
@@ -232,7 +231,7 @@ function Kanban() {
       },
     }),
   );
- 
+
   return (
     <DndContext
       sensors={sensors}
@@ -252,11 +251,9 @@ function Kanban() {
                 style={{ minHeight: '250px' }}
               >
                 <ColumnContainer
-                firstRender={firstRender}
+                  firstRender={firstRender}
                   column={column}
-                  tasks={tasks.filter(
-                    (task) => task.columnId === column.id,
-                  )}
+                  tasks={tasks.filter((task) => task.columnId === column.id)}
                 />
               </Col>
             ))}
@@ -266,21 +263,19 @@ function Kanban() {
       {createPortal(
         <DragOverlay>
           {activeTask ? (
-            <TaskContainer task={activeTask} firstRender={firstRender}/>
+            <TaskContainer task={activeTask} firstRender={firstRender} />
           ) : (
             activeColumn && (
-              <Col
-                style={{ minHeight: '250px' }}
-              >
+              <Col style={{ minHeight: '250px' }}>
                 <ColumnContainer
-                firstRender={firstRender}
+                  firstRender={firstRender}
                   column={activeColumn}
                   tasks={tasks.filter(
                     (task) => task.columnId === activeColumn.id,
                   )}
                 />
               </Col>
-              )
+            )
           )}
         </DragOverlay>,
         document.body,

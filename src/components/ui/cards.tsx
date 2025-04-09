@@ -38,7 +38,7 @@ const CardSection = memo(
             </div>
           </div>
           <CardTitle className="text-secondary-700 fs-14 fw-semibold mt-3 mb-2">
-            {!firstRender || <Skeleton count={1} height={16} />}
+            {!firstRender ? data.title : <Skeleton count={1} height={16} />}
           </CardTitle>
           <div className="d-flex align-items-center">
             {!firstRender ? (
@@ -84,7 +84,7 @@ const CardSection = memo(
                   className="rounded-circle border border-3 border-white position-relative z-2"
                   style={{ right: '7px' }}
                 >
-                  <img width={25} src="../../assets/images/json.png" />
+                  <img width={25} src="../../assets/images/jack.png" />
                 </div>
                 <div
                   className="rounded-circle position-relative"

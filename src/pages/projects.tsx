@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 import styled from 'styled-components';
 import InviteMember from '../components/inviteMember';
@@ -36,11 +36,12 @@ const Style = styled.div`
 `;
 function Projects() {
   const [progressValue, setProgressValue] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<string | null>('kanban');
 
   useEffect(() => {
     setTimeout(() => {
       setProgressValue(80);
-    }, 3000);
+    }, 1000);
   }, []);
 
   return (
@@ -170,74 +171,32 @@ function Projects() {
               <BreakLine />
               <Row className="align-items-center">
                 <Col xs={8} sm={6}>
-                  <ul
-                    className="nav nav-tabs p-1 bg-secondary-100 rounded"
-                    style={{ maxWidth: '276px', minWidth: '265px' }}
+                  <Tabs
+                    activeKey={activeTab as string}
+                    onSelect={(k) => setActiveTab(k)}
+                    defaultActiveKey="kanban"
+                    id="kanban-tabs"
+                    className="bg-secondary-100 p-1 rounded"
+                    style={{ maxWidth: 'max-content', minWidth: 'max-content' }}
                   >
-                    <li className="nav-item">
-                      <button
-                        className="nav-link active"
-                        id="kanban-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#kanban"
-                        type="button"
-                        role="tab"
-                      >
-                        Kanban
-                      </button>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link"
-                        id="table-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#table"
-                        type="button"
-                        role="tab"
-                      >
-                        Table
-                      </button>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="nav-link"
-                        id="calendar-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#calendar"
-                        type="button"
-                        role="tab"
-                      >
-                        Calendar
-                      </button>
-                    </li>
-                  </ul>
+                    <Tab eventKey="kanban" title="Kanban" />
+                    <Tab eventKey="table" title="Table" />
+                    <Tab eventKey="calendar" title="Calendar" />
+                  </Tabs>
                 </Col>
                 <Col xs={4} sm={6}>
                   <Filter />
                 </Col>
-                <Row>
-                  <Col xs={12}>
-                    <div className="tab-content rounded-bottom mt-4">
-                      <div
-                        className="tab-pane fade show active"
-                        id="kanban"
-                        role="tabpanel"
-                      >
-                        <Kanban />
-                      </div>
-                      <div className="tab-pane fade" id="table" role="tabpanel">
-                        Tab content for table
-                      </div>
-                      <div
-                        className="tab-pane fade"
-                        id="calendar"
-                        role="tabpanel"
-                      >
-                        Tab content for calendar
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
+              </Row>
+
+              <Row className="mt-4">
+                <Col xs={12}>
+                  {activeTab === 'kanban' && <Kanban />}
+                  {activeTab === 'table' && <div>Tab content for table</div>}
+                  {activeTab === 'calendar' && (
+                    <div className="mt-4">Tab content for calendar</div>
+                  )}
+                </Col>
               </Row>
             </Container>
           </Col>
