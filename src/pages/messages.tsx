@@ -23,7 +23,7 @@ function Messages() {
           <TopNavbar
             road={'messages'}
             nextRoad=""
-            classes="d-none d-md-block"
+            classes="d-none d-lg-block"
           />
           <Container fluid className="h-inherit">
             <Row className="border-top border-secondary-200 h-inherit">

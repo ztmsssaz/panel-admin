@@ -8,7 +8,7 @@ function MobileNavbar({ road }: { road: string }) {
   const [show, setShow] = useState<boolean>(false);
 
   return (
-    <Container fluid className="py-3 d-block d-md-none">
+    <Container fluid className="py-3 d-block d-lg-none">
       <Row>
         <Col xs={12}>
           <div className="d-flex align-items-center justify-content-between">
@@ -21,7 +21,7 @@ function MobileNavbar({ road }: { road: string }) {
                 {road}
               </h1>
             </div>
-            <Notifications classes="d-md-none" />
+            <Notifications classes="d-lg-none" />
           </div>
         </Col>
       </Row>

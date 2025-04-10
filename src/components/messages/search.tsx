@@ -29,7 +29,7 @@ function Search() {
                   placeholder="Search here"
                 />
                 <div className="inputIcons">
-                  <SearchIcon />
+                  <SearchIcon color={colors.secondary_500} />
                 </div>
               </Form.Group>
               <InfoButton classes="d-flex align-items-center justify-content- ms-2">

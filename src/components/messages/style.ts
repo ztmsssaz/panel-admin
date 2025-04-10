@@ -85,6 +85,22 @@ const Style = styled.div`
       }
     }
   }
+  /*  */
+  /* انیمیشن fade-in برای پیام‌ها */
+  @keyframes fadeInMessage {
+    0% {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .message-animation {
+    animation: fadeInMessage 0.3s ease-out forwards; /* زمان انیمیشن و نوع حرکت */
+  }
 
   @media (min-width: 768px) {
     .chat {

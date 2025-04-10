@@ -36,7 +36,7 @@ function Filter() {
                   placeholder="Search here "
                 />
                 <div className="inputIcons">
-                  <SearchIcon />
+                  <SearchIcon color={colors.secondary_700} />
                 </div>
               </Form.Group>
               <div
@@ -50,8 +50,10 @@ function Filter() {
                 }}
                 className="d-flex align-items-center justify-content-center px-2 py-1 bg-white bordder border-secondary-200 rounded-10"
               >
-                <FilterIcon />
-                <span className="text-secondary-700 fw-bold px-1 d-none d-md-inline-block">
+                <div>
+                  <FilterIcon />
+                </div>
+                <span className="text-secondary-700 fw-bold px-1 d-none d-lg-inline-block">
                   Filter
                 </span>
               </Button>
@@ -60,7 +62,9 @@ function Filter() {
                 <span>
                   <PlusIcon color={colors.white} />
                 </span>
-                <span className="px-2 d-none d-md-inline-block">Add New</span>
+                <span className="px-2 d-none fw-bold d-lg-inline-block">
+                  Add New
+                </span>
               </InfoButton>
             </Form>
           </Col>

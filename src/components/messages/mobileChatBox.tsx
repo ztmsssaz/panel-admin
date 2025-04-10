@@ -130,7 +130,7 @@ const MobileChatBox = ({}) => {
                       ref={
                         index === messages.length - 1 ? lastMessageRef : null
                       } // آخرین پیام
-                      className={`d-flex align-items-end mb-3 w-75 ${
+                      className={`d-flex align-items-end mb-3 w-75 message-animation ${
                         messageContent.sender === 'me'
                           ? 'float-end flex-row-reverse'
                           : ''
