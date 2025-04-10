@@ -9,16 +9,17 @@ import TopColumn from './topColumn';
 import { CSS } from '@dnd-kit/utilities';
 import { useMemo } from 'react';
 import TaskContainer from './taskContainer';
-import { PlusIcon } from '../ui/icons/svgs';
+import { GripDotsIcon, PlusIcon } from '../ui/icons/svgs';
 
 interface Props {
   column: Column;
   firstRender: boolean;
   tasks: Task[];
+  grabbing?: boolean;
 }
 
 function ColumnContainer(props: Props) {
-  const { column, tasks, firstRender } = props;
+  const { column, tasks, firstRender, grabbing = false } = props;
 
   const taskIds = useMemo(() => {
     return tasks.map((task) => task.id);
@@ -44,12 +45,15 @@ function ColumnContainer(props: Props) {
       <div
         ref={setNodeRef}
         style={style}
-        {...attributes}
-        {...listeners}
         className={`bg-secondary-50 rounded-10 opacity-50 w-100 h-100`}
       >
         <div className="p-1">
-          <TopColumn title={column.title} firstRender={firstRender} />
+          <div className="d-flex align-items-center justify-content-between">
+            <TopColumn title={column.title} firstRender={firstRender} />
+            <span className="d-inline d-lg-none">
+              <GripDotsIcon />
+            </span>
+          </div>
           <div
             className="hideScroll"
             style={{
@@ -80,17 +84,26 @@ function ColumnContainer(props: Props) {
       </Button>
     );
   }
-
+  // main
   return (
     <div
       ref={setNodeRef}
       style={style}
-      {...attributes}
-      {...listeners}
       className={`bg-secondary-50 rounded-10 w-100`}
     >
       <div className="p-1">
-        <TopColumn title={column.title} firstRender={firstRender} />
+        <div
+          {...attributes}
+          {...listeners}
+          className="d-flex align-items-center justify-content-between"
+        >
+          <TopColumn title={column.title} firstRender={firstRender} />
+          <span
+            className={`d-inline d-lg-none no-touch-action cursor-grab ${grabbing ? 'cursor-grabbing' : ''}`}
+          >
+            <GripDotsIcon />
+          </span>
+        </div>
         <SortableContext
           strategy={horizontalListSortingStrategy}
           items={taskIds}

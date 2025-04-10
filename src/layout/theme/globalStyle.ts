@@ -48,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
     )}
   }
   /* Default Styles */
+  /* reset styles */
   * {
     margin: 0;
     padding: 0;
@@ -60,7 +61,11 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
   /* Border Radius */
   ${sizes
     .map((size) =>
@@ -113,7 +118,26 @@ const GlobalStyle = createGlobalStyle`
 
   /* Other Styles */
   .dropdown-toggle::after { content: none; }
-  .cursor-pointer { cursor: pointer; }
+  .cursor{ 
+    &-pointer{ cursor: pointer; }
+    &-grab{
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      } 
+    }
+    &-grabbing{
+      cursor:grabbing
+    }
+  }
+  .no-touch-action {
+  touch-action: none;
+  }
+  .no-drag-zone {
+  touch-action: auto;
+  pointer-events: auto;
+  user-select: none; /* اگه بخوای متن قابل انتخاب باشه */
+  }
   .inputIcons {
     position: absolute;
     left: 8px;
@@ -121,6 +145,7 @@ const GlobalStyle = createGlobalStyle`
     transform: translateY(-50%);
   }
   .h-inherit { height: inherit; }
+  .w-inherit { width: inherit; }
   .hideScroll {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE & Edge */

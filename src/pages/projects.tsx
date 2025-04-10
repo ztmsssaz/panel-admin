@@ -51,7 +51,7 @@ function Projects() {
           <Col xs={12} className="inherit px-0">
             <MobileNavbar road={'messages'} />
             <TopNavbar road={'Projects'} nextRoad="Marketing Campaign" />
-            <BreakLine classes="d-none d-md-block" />
+            <BreakLine classes="d-none d-lg-block" />
             <Container fluid className="py-4">
               <Row>
                 <Col xs={12} className="d-flex align-items-center">

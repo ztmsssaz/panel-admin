@@ -37,7 +37,7 @@ function TaskContainer({
         {...attributes}
         {...listeners}
       >
-        <CardSection data={task} firstRender={firstRender} />
+        <CardSection data={task} firstRender={false} />
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import Dropdown from 'react-bootstrap/Dropdown';
-import { memo, useState } from 'react';
 import { TrashIcon, VerticalDotsIcon } from '../icons/svgs';
 import { colors } from '../../../layout/theme/colors';
 import styled from 'styled-components';
@@ -7,54 +6,51 @@ import styled from 'styled-components';
 const Style = styled.div`
   .fade-dropdown {
     opacity: 0;
-    transform: translateY(10px);
     transition: all 0.2s ease;
     display: block !important;
     &.show {
       opacity: 1;
-      transform: translateY(0);
       pointer-events: auto;
+    }
+  }
+  .hover-bg-secondary-100 {
+    transition-duration: 0.3s;
+    &:hover {
+      background-color: ${colors.secondary_100};
     }
   }
 `;
 
-const CardDropdownItems = memo(
-  ({ id = Math.random() * 100 }: { id: string | number }) => {
-    const [show, setShow] = useState(false);
+const CardDropdownItems = ({ id }: { id: string | number }) => {
+  return (
+    <Style>
+      <Dropdown>
+        <Dropdown.Toggle
+          as="div"
+          variant="transparent"
+          id={`dropdown-${id}-${Math.random() * 30}`}
+          className="custom-toggle z-3 p-0"
+        >
+          <VerticalDotsIcon color={colors.secondary_300} width={15} />
+        </Dropdown.Toggle>
 
-    return (
-      <Style>
-        <Dropdown>
-          <Dropdown.Toggle
-            as="div"
-            variant="transparent"
-            id={`dropdown-${id}-${Math.random() * 100}`}
-            className="custom-toggle z-3"
-            onClick={() => setShow(true)}
-            onMouseLeave={() => setShow(false)}
-          >
-            <span>
-              <VerticalDotsIcon color={colors.secondary_300} width={20} />
-            </span>
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu
-            as="div"
-            className={`fade-dropdown ${show ? 'show' : ''} border-secondary-100 light-shadow rounded-10`}
-          >
-            <div className="p-2">
-              <div>
-                <span>
-                  <TrashIcon width={20} />
-                </span>
-                <span>Delete</span>
-              </div>
-            </div>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Style>
-    );
-  },
-);
+        <Dropdown.Menu
+          as="div"
+          className={`fade-dropdown border-secondary-200 p-0 light-shadow rounded-10`}
+        >
+          <ul className="fs-14">
+            <li
+              className="d-flex align-items-center hover-bg-secondary-100 p-2"
+              onClick={() => console.log(id)}
+            >
+              <TrashIcon width={15} color={colors.error_500} />
+              <p className="ms-1">Delete {id}</p>
+            </li>
+          </ul>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Style>
+  );
+};
 
 export default CardDropdownItems;

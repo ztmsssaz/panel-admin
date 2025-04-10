@@ -170,11 +170,9 @@ const Chat = ({}) => {
                       )}
                     </div>
                     <div
-                      className={
-                        messageContent.sender === 'other'
-                          ? 'message you'
-                          : 'message other'
-                      }
+                      className={`message ${
+                        messageContent.sender === 'other' ? 'you' : 'other'
+                      }`}
                     >
                       <div className="message-content">
                         {!loading ? (

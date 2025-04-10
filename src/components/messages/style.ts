@@ -20,11 +20,12 @@ const Style = styled.div`
           }
         }
         .message {
+          width: inherit;
           min-width: 55px;
           display: inline-block;
           padding: 10px;
           position: relative;
-          width: max-content;
+
           &.you {
             background: ${colors.info_100};
             border-radius: 10px 10px 10px 0;
@@ -99,7 +100,6 @@ const Style = styled.div`
   }
 
   .message-animation {
-    animation: fadeInMessage 0.3s ease-out forwards; /* زمان انیمیشن و نوع حرکت */
   }
 
   @media (min-width: 768px) {

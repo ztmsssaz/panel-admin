@@ -77,7 +77,7 @@ const MobileChatBox = ({}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2000);
     if (window.innerWidth >= 768) {
       navigate(`/messages/${params.chatId}`);
     }
@@ -154,11 +154,9 @@ const MobileChatBox = ({}) => {
                         )}
                       </div>
                       <div
-                        className={
-                          messageContent.sender === 'other'
-                            ? 'message you'
-                            : 'message other'
-                        }
+                        className={`message ${
+                          messageContent.sender === 'other' ? 'you' : 'other'
+                        }`}
                       >
                         <div className="message-content">
                           {!loading ? (

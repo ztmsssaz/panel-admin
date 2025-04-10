@@ -41,7 +41,7 @@ function TopNavbar({
                 </>
               )}
             </div>
-            <Notifications classes="d-none d-md-flex" />
+            <Notifications classes="d-none d-lg-flex" />
           </div>
         </Col>
       </Row>

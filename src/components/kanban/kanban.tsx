@@ -225,7 +225,7 @@ function Kanban() {
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
-        distance: 10,
+        distance: 1,
       },
     }),
   );
@@ -264,6 +264,7 @@ function Kanban() {
             activeColumn && (
               <Col className="p-0">
                 <ColumnContainer
+                  grabbing={activeColumn ? true : false}
                   firstRender={firstRender}
                   column={activeColumn}
                   tasks={tasks.filter(
