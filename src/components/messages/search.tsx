@@ -29,12 +29,14 @@ function Search() {
                   placeholder="Search here"
                 />
                 <div className="inputIcons">
-                  <PlusIcon />
+                  <SearchIcon />
                 </div>
               </Form.Group>
-              <InfoButton classes="d-flex align-items-center ms-2">
-                <SearchIcon />
-                <span className="px-2">New</span>
+              <InfoButton classes="d-flex align-items-center justify-content- ms-2">
+                <span className="position-relative" style={{ right: 2 }}>
+                  <PlusIcon width={20} color={colors.white} />
+                </span>
+                <span className="px-1y">New</span>
               </InfoButton>
             </Form>
           </Col>

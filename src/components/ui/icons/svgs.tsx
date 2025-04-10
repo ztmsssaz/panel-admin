@@ -1,3 +1,5 @@
+import { colors } from '../../../layout/theme/colors';
+
 export function ArrowDown({
   color = '#BEBEC8',
   width = 14,
@@ -144,31 +146,13 @@ export function CalendarIcon({ width = 16 }: { width?: number }) {
     </svg>
   );
 }
-export function SearchIcon({ width = 12 }: { width?: number }) {
-  return (
-    <svg
-      width={width}
-      height={width}
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M6 0C6.41421 0 6.75 0.335786 6.75 0.75V11.25C6.75 11.6642 6.41421 12 6 12C5.58579 12 5.25 11.6642 5.25 11.25V0.75C5.25 0.335786 5.58579 0 6 0Z"
-        fill="white"
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M0 6C0 5.58579 0.335786 5.25 0.75 5.25H11.25C11.6642 5.25 12 5.58579 12 6C12 6.41421 11.6642 6.75 11.25 6.75H0.75C0.335786 6.75 0 6.41421 0 6Z"
-        fill="white"
-      />
-    </svg>
-  );
-}
-export function PlusIcon({ width = 20 }: { width?: number }) {
+export function SearchIcon({
+  width = 20,
+  color = colors.secondary_400,
+}: {
+  width?: number;
+  color?: string;
+}) {
   return (
     <svg
       width={width}
@@ -179,14 +163,14 @@ export function PlusIcon({ width = 20 }: { width?: number }) {
     >
       <path
         d="M9.58366 17.4993C13.9559 17.4993 17.5003 13.9549 17.5003 9.58268C17.5003 5.21043 13.9559 1.66602 9.58366 1.66602C5.2114 1.66602 1.66699 5.21043 1.66699 9.58268C1.66699 13.9549 5.2114 17.4993 9.58366 17.4993Z"
-        stroke="#161618"
+        stroke={color}
         strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M18.3337 18.3327L16.667 16.666"
-        stroke="#161618"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -291,6 +275,67 @@ export function ArrowLeftIcon({
       <path
         d="M13.6663 8H2.44629"
         stroke={color}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+export function PlusIcon({
+  width = 20,
+  color = colors.secondary_400,
+}: {
+  width?: number;
+  color?: string;
+}) {
+  return (
+    <svg
+      width={width}
+      height={width}
+      viewBox={`0 0 ${width} ${width}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 10H15"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 15V5"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function FilterIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.0498 1.57422H13.9498C14.7748 1.57422 15.4498 2.24922 15.4498 3.07422V4.72422C15.4498 5.32422 15.0748 6.07422 14.6998 6.44922L11.4748 9.29922C11.0248 9.67422 10.7248 10.4242 10.7248 11.0242V14.2492C10.7248 14.6992 10.4248 15.2992 10.0498 15.5242L8.9998 16.1992C8.02481 16.7992 6.6748 16.1242 6.6748 14.9242V10.9492C6.6748 10.4242 6.3748 9.74922 6.0748 9.37422L3.2248 6.37422C2.8498 5.99922 2.5498 5.32422 2.5498 4.87422V3.14922C2.5498 2.24922 3.2248 1.57422 4.0498 1.57422Z"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.1975 1.57422L4.5 7.49922"
+        stroke="#161618"
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"
