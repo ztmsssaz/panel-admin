@@ -15,6 +15,16 @@ import { createPortal } from 'react-dom';
 import { Column, Task } from '../../types/types';
 import ColumnContainer from './columnContainer';
 import TaskContainer from './taskContainer';
+import styled from 'styled-components';
+
+const Style = styled.div`
+  @media (min-width: 1992px) {
+    .column-lg {
+      min-width: 275px;
+      max-width: 275px;
+    }
+  }
+`;
 
 function Kanban() {
   const columnsData = [
@@ -237,25 +247,29 @@ function Kanban() {
       onDragEnd={handleDragEnd}
       onDragStart={handleDragStart}
     >
-      <Container fluid>
-        <Row className="flex-nowrap overflow-x-scroll">
-          <SortableContext items={columnsId}>
-            {columns.map((column, index) => (
-              <Col key={column.id} xs={7} md={3} className="p-0">
-                <div
-                  className={`${index === 0 || index !== columns.length ? 'mx-1' : ''}`}
-                >
-                  <ColumnContainer
-                    firstRender={firstRender}
-                    column={column}
-                    tasks={tasks.filter((task) => task.columnId === column.id)}
-                  />
-                </div>
-              </Col>
-            ))}
-          </SortableContext>
-        </Row>
-      </Container>
+      <Style>
+        <Container fluid>
+          <Row className="flex-nowrap overflow-x-scroll">
+            <SortableContext items={columnsId}>
+              {columns.map((column, index) => (
+                <Col key={column.id} xs={8} md={3} className="column-lg p-0">
+                  <div
+                    className={`${index === 0 ? 'me-2' : index + 1 === columns.length ? 'ms-2' : 'mx-2'}`}
+                  >
+                    <ColumnContainer
+                      firstRender={firstRender}
+                      column={column}
+                      tasks={tasks.filter(
+                        (task) => task.columnId === column.id,
+                      )}
+                    />
+                  </div>
+                </Col>
+              ))}
+            </SortableContext>
+          </Row>
+        </Container>
+      </Style>
       {createPortal(
         <DragOverlay>
           {activeTask ? (

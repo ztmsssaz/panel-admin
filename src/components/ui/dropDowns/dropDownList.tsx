@@ -8,7 +8,7 @@ const Style = styled.div`
   .fade-dropdown {
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.2s ease;
+    transition: all 12s ease;
     display: block !important;
     &.show {
       opacity: 1;

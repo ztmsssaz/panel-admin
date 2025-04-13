@@ -14,14 +14,14 @@ const CardSection = ({
   firstRender: boolean;
 }) => {
   return (
-    <Card className="border-secondary-200 rounded-10 mb-2 w-100 mx-auto z-4">
+    <Card className="border-secondary-200 rounded-10 mb-2 mx-auto z-4">
       <CardBody>
         <div className="d-flex justify-content-between align-items-center fs-12 no-touch-action">
           <LevelLabel level={!firstRender ? data.level : 0} />
-          <div className="cursor-pointer">
+          <div className="cursor-pointer position-relative">
             <CardDropdownItems id={data.id} />
           </div>
-        </div> 
+        </div>
         <div className="no-drag-zone">
           <CardTitle className="text-secondary-700 fs-14 fw-semibold mt-3 mb-2">
             {!firstRender ? data.title : <Skeleton count={1} height={16} />}

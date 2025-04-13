@@ -9,10 +9,8 @@ function Others({ open }: { open: boolean }) {
   return (
     <>
       <Row className="mt-4">
-        <span className="text-secondary fs-12">Other</span>
-      </Row>
-      {/* links */}
-      <Row className="fs-14">
+        <Col className="text-secondary fs-12">Other</Col>
+
         <Col xs={12}>
           <NavLink
             to={'/dashboard'}

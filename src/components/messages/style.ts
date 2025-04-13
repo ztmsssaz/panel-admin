@@ -3,10 +3,9 @@ import { colors } from '../../layout/theme/colors';
 
 const Style = styled.div`
   .chat {
+    max-height: calc(100vh - 182px);
     &-body {
       .message-container {
-        max-height: calc(100vh - 220px);
-        overflow-y: scroll;
         padding-bottom: 60px;
         height: 100%;
         background-color: ${colors.white};
@@ -70,14 +69,7 @@ const Style = styled.div`
     &.mobile {
       position: relative;
       top: 140px;
-      overflow: hidden;
-
-      .chat-body {
-        .message-container {
-          overflow: hidden;
-          min-height: calc(100vh - 200px);
-        }
-      }
+      overflow-y: auto;
       .chat-footer {
         position: fixed;
         width: 100%;
@@ -91,7 +83,7 @@ const Style = styled.div`
   @keyframes fadeInMessage {
     0% {
       opacity: 0;
-      transform: translateX(10px);
+      transform: translateY(10px);
     }
     100% {
       opacity: 1;
@@ -100,6 +92,7 @@ const Style = styled.div`
   }
 
   .message-animation {
+    animation: fadeInMessage 0.5s ease-out forwards; /* زمان انیمیشن و نوع حرکت */
   }
 
   @media (min-width: 768px) {

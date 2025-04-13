@@ -5,6 +5,7 @@ const sizes = [
   6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 24, 26,
 ];
 const directions = ['', 'top', 'right', 'bottom', 'left'];
+const corners = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -67,29 +68,35 @@ ul, li {
   margin: 0;
 }
   /* Border Radius */
-  ${sizes
-    .map((size) =>
-      directions
-        .map((dir) => {
-          const className = dir
-            ? `.rounded-${dir}-${size}`
-            : `.rounded-${size}`;
-          const radius =
-            dir === 'top'
-              ? `border-top-left-radius: ${size}px; border-top-right-radius: ${size}px;`
-              : dir === 'right'
-                ? `border-top-right-radius: ${size}px; border-bottom-right-radius: ${size}px;`
-                : dir === 'bottom'
-                  ? `border-bottom-left-radius: ${size}px; border-bottom-right-radius: ${size}px;`
-                  : dir === 'left'
-                    ? `border-top-left-radius: ${size}px; border-bottom-left-radius: ${size}px;`
-                    : `border-radius: ${size}px;`;
+ ${sizes
+   .map((size) =>
+     [...directions, ...corners]
+       .map((dir) => {
+         const className = dir ? `.rounded-${dir}-${size}` : `.rounded-${size}`;
+         const radius =
+           dir === 'top'
+             ? `border-top-left-radius: ${size}px; border-top-right-radius: ${size}px;`
+             : dir === 'right'
+               ? `border-top-right-radius: ${size}px; border-bottom-right-radius: ${size}px;`
+               : dir === 'bottom'
+                 ? `border-bottom-left-radius: ${size}px; border-bottom-right-radius: ${size}px;`
+                 : dir === 'left'
+                   ? `border-top-left-radius: ${size}px; border-bottom-left-radius: ${size}px;`
+                   : dir === 'top-left'
+                     ? `border-top-left-radius: ${size}px;`
+                     : dir === 'top-right'
+                       ? `border-top-right-radius: ${size}px;`
+                       : dir === 'bottom-right'
+                         ? `border-bottom-right-radius: ${size}px;`
+                         : dir === 'bottom-left'
+                           ? `border-bottom-left-radius: ${size}px;`
+                           : `border-radius: ${size}px;`;
 
-          return `${className} { ${radius} }`;
-        })
-        .join('\n'),
-    )
-    .join('\n')}
+         return `${className} { ${radius} }`;
+       })
+       .join('\n'),
+   )
+   .join('\n')}
 
 
   /* Margin & Padding */

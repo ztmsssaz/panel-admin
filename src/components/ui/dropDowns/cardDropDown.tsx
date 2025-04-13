@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Style = styled.div`
   .fade-dropdown {
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: all 0.1s ease-out;
     display: block !important;
     &.show {
       opacity: 1;
@@ -24,7 +24,7 @@ const Style = styled.div`
 const CardDropdownItems = ({ id }: { id: string | number }) => {
   return (
     <Style>
-      <Dropdown>
+      <Dropdown className="user-select-none z-3">
         <Dropdown.Toggle
           as="div"
           variant="transparent"
@@ -40,7 +40,7 @@ const CardDropdownItems = ({ id }: { id: string | number }) => {
         >
           <ul className="fs-14">
             <li
-              className="d-flex align-items-center hover-bg-secondary-100 p-2"
+              className="d-flex align-items-center hover-bg-secondary-100 rounded-10 p-2"
               onClick={() => console.log(id)}
             >
               <TrashIcon width={15} color={colors.error_500} />

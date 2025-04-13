@@ -21,10 +21,12 @@ const Style = styled.div`
     box-shadow: 0px 1px 2px 0px rgba(82, 88, 102, 0.06);
     border-bottom: solid 2px ${colors.info_600} !important;
   }
-  .chatItems {
-    .tab-content #chatroom-tabs-tabpane-All {
-      max-height: calc(100vh - 100px);
-      overflow-y: scroll;
+  .tab-content .tab-item {
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    direction: rtl;
+    div {
+      direction: ltr;
     }
   }
 `;
@@ -36,20 +38,14 @@ function Chatroom({ chatList }: { chatList: boolean }) {
     setActiveChat(id);
   }, []);
   return (
-    <Style className="chatItems mt-2">
+    <Style className="mt-2">
       <div className="d-flex d-md-none">
         <PivotTeamDropDown />
       </div>
       <Search />
       <Tabs defaultActiveKey="All" id="chatroom-tabs" className="mb-3">
-        <Tab eventKey="All" title="All">
-          <div
-            className="overflow-y-scroll bg-white"
-            style={{
-              maxHeight: 'calc(100vh - 230px)',
-              minHeight: 'calc(100vh - 230px)',
-            }}
-          >
+        <Tab eventKey="All" title="All" className="tab-item">
+          <div>
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((id) => (
               <ChatItem
                 key={id}
@@ -61,14 +57,8 @@ function Chatroom({ chatList }: { chatList: boolean }) {
             ))}
           </div>
         </Tab>
-        <Tab eventKey="Unread" title="Unread(1)">
-          <div
-            className="overflow-y-scroll bg-white"
-            style={{
-              maxHeight: 'calc(100vh - 230px)',
-              minHeight: 'calc(100vh - 230px)',
-            }}
-          >
+        <Tab eventKey="Unread" title="Unread(1)" className="tab-item">
+          <div>
             <ChatItem
               data={chatList}
               id={1}

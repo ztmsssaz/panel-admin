@@ -137,7 +137,7 @@ const Chat = ({}) => {
         </div>
         <CallAndOthers />
       </header>
-      <div className="chat border-start border-secondary-200 py-3">
+      <div className="chat overflow-y-auto border-start border-secondary-200 py-3">
         <div className="chat-body ">
           <div className="message-container w-100 overflow-scroll">
             <Container fluid="lg">

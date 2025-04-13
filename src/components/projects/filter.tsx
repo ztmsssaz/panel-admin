@@ -12,12 +12,6 @@ const Style = styled.div`
       color: ${colors.secondary_400};
     }
   }
-  .inputIcons {
-    @media screen and(max-width:768px) {
-      min-width: 30px !important;
-      min-height: 30px !important;
-    }
-  }
 `;
 function Filter() {
   return (

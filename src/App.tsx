@@ -5,7 +5,7 @@ import MainRouter from './router';
 
 function App() {
   return (
-    <div className="bg-secondary-100 vh-100">
+    <div className="bg-secondary-100">
       <MainRouter />
     </div>
   );

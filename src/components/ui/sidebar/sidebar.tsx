@@ -41,7 +41,7 @@ const Sidebar = memo(
       'd-flex align-items-center text-secondary-500 fw-bold py-1 rounded-2 ';
 
     return (
-      <Container fluid className={`sidebar ps-0 ${open ? 'collapsed' : ''}`}>
+      <Container fluid className={`sidebar ${open ? 'collapsed' : ''} h-100`}>
         <Style>
           <Row>
             <Col>
@@ -96,7 +96,7 @@ const Sidebar = memo(
             </Col>
           </Row>
           <Row className="mt-4">
-            <span className="text-secondary fs-12">Main Menu</span>
+            <Col className="text-secondary fs-12">Main Menu</Col>
           </Row>
           {/* links */}
           <Row className="fs-14">
@@ -422,20 +422,18 @@ const Sidebar = memo(
                 </div>
               </NavLink>
             </Col>
+          </Row>
 
-            {open && (
-              <Col
-                xs={12}
-                className={`${!open && 'opacity-0 d-none'} transition-all z-2 bg-secondary-100`}
-              >
-                <FavoritesButtons />
-              </Col>
-            )}
+          <Row>
             <Col
-              xs={12}
-              className="position-absolute start-0 ps-0"
-              style={{ bottom: '15px' }}
+              className={`${!open && 'opacity-0 d-none'} transition-all z-2 bg-secondary-100`}
             >
+              <FavoritesButtons />
+            </Col>
+          </Row>
+          {/* others link like setting */}
+          <Row>
+            <Col xs={12} className="mt-5" style={{ bottom: '15px' }}>
               <Others open={true} />
             </Col>
           </Row>

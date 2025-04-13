@@ -45,7 +45,7 @@ function ColumnContainer(props: Props) {
       <div
         ref={setNodeRef}
         style={style}
-        className={`bg-secondary-50 rounded-10 opacity-50 w-100 h-100`}
+        className={`bg-secondary-50 rounded-10 opacity-50 w-lg-100 h-100`}
       >
         <div className="p-1">
           <div className="d-flex align-items-center justify-content-between">
@@ -57,8 +57,8 @@ function ColumnContainer(props: Props) {
           <div
             className="hideScroll"
             style={{
-              maxHeight: 'calc(100vh - 80px)',
-              minHeight: 'calc(100vh - 80px)',
+              maxHeight: '688px',
+              minHeight: '688px',
               overflowY: 'auto',
             }}
           >
@@ -111,8 +111,8 @@ function ColumnContainer(props: Props) {
           <div
             className="hideScroll"
             style={{
-              maxHeight: 'calc(100vh - 80px)',
-              minHeight: 'calc(100vh - 80px)',
+              maxHeight: '688px',
+              minHeight: '688px',
               overflowY: 'auto',
             }}
           >
