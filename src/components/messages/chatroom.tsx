@@ -38,7 +38,7 @@ function Chatroom({ chatList }: { chatList: boolean }) {
     setActiveChat(id);
   }, []);
   return (
-    <Style className="mt-2">
+    <Style className="mt-2" data-testid="chatroom">
       <div className="d-flex d-md-none">
         <PivotTeamDropDown />
       </div>
