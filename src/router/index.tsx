@@ -20,7 +20,7 @@ const MainRouter = () => {
       <Suspense fallback={<FallbackLoading />}>
         <Layout>
           <Routes>
-            <Route path="/" element={<Projects />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/messages" element={<Messages />} />
